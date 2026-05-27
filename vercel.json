@@ -1,0 +1,11 @@
+{
+  "installCommand": "cd uniconnect-platform && npm install",
+  "buildCommand": "cd uniconnect-platform && npm run build",
+  "outputDirectory": "uniconnect-platform/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
