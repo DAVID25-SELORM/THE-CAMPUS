@@ -1,11 +1,13 @@
 node_modules/
 dist/
+.vercel/
 .env
 .env.local
 .env.*.local
 
 uniconnect-platform/node_modules/
 uniconnect-platform/dist/
+uniconnect-platform/.vercel/
 uniconnect-platform/.env
 uniconnect-platform/.env.local
 uniconnect-platform/.env.*.local
