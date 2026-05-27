@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./hooks/useAuth.jsx";
+import Logo from "./components/Logo.jsx";
 import AppLayout from "./layouts/AppLayout.jsx";
 import Login from "./pages/auth/Login.jsx";
 import Register from "./pages/auth/Register.jsx";
@@ -20,7 +21,16 @@ import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 
 function PrivateRoute({ children }) {
   const { session, loading } = useAuth();
-  if (loading) return <div className="screen-center">Loading UniConnect...</div>;
+  if (loading) {
+    return (
+      <div className="screen-center p-4">
+        <div className="grid place-items-center gap-4">
+          <Logo variant="hero" />
+          <p className="muted font-bold">Loading UniConnect...</p>
+        </div>
+      </div>
+    );
+  }
   return session ? children : <Navigate to="/login" replace />;
 }
 

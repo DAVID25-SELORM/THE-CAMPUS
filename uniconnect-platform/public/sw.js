@@ -1,5 +1,5 @@
-const CACHE_NAME = "uniconnect-shell-v1";
-const SHELL_ASSETS = ["/", "/feed", "/manifest.webmanifest", "/favicon.svg"];
+const CACHE_NAME = "uniconnect-shell-v2";
+const SHELL_ASSETS = ["/", "/feed", "/manifest.webmanifest", "/assets/uniconnect-logo.png"];
 
 self.addEventListener("install", event => {
   event.waitUntil(

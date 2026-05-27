@@ -23,7 +23,9 @@ export default function Login() {
   return (
     <div className="screen-center p-4">
       <form onSubmit={submit} className="glass w-full max-w-md rounded-[28px] p-6">
-        <Logo />
+        <div className="flex justify-center">
+          <Logo variant="hero" />
+        </div>
         <h1 className="text-3xl font-black mt-8">Welcome back</h1>
         <p className="muted mt-2">Login to your digital campus.</p>
 

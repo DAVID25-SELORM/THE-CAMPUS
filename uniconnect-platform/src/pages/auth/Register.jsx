@@ -44,7 +44,9 @@ export default function Register() {
   return (
     <div className="screen-center p-4">
       <form onSubmit={submit} className="glass w-full max-w-md rounded-[28px] p-6">
-        <Logo />
+        <div className="flex justify-center">
+          <Logo variant="hero" />
+        </div>
         <h1 className="text-3xl font-black mt-8">Create account</h1>
         <p className="muted mt-2">Join your verified campus network.</p>
 

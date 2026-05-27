@@ -8,10 +8,16 @@
   "theme_color": "#00f5ff",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "/assets/uniconnect-logo.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/uniconnect-logo.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

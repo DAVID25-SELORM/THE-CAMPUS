@@ -1,9 +1,21 @@
 import React from "react";
 
-export default function Logo() {
+const logoSrc = "/assets/uniconnect-logo.png";
+
+export default function Logo({ variant = "inline" }) {
+  if (variant === "hero") {
+    return (
+      <div className="brand-logo-hero" aria-label="UniConnect">
+        <img src={logoSrc} alt="UniConnect" />
+      </div>
+    );
+  }
+
   return (
     <div className="flex items-center gap-3">
-      <div className="h-10 w-10 rounded-2xl bg-cyan-300 shadow-neon grid place-items-center text-slate-950 font-black">U</div>
+      <div className="brand-logo-mark" aria-hidden="true">
+        <img src={logoSrc} alt="" />
+      </div>
       <div>
         <div className="font-black leading-none">UniConnect</div>
         <div className="text-xs muted">Digital Campus</div>
