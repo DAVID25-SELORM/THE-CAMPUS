@@ -1,0 +1,50 @@
+[
+  {
+    "id": "books_and_notes",
+    "name": "Books and Notes"
+  },
+  {
+    "id": "electronics",
+    "name": "Electronics"
+  },
+  {
+    "id": "hostel_items",
+    "name": "Hostel Items"
+  },
+  {
+    "id": "food_and_snacks",
+    "name": "Food and Snacks"
+  },
+  {
+    "id": "fashion",
+    "name": "Fashion"
+  },
+  {
+    "id": "printing_and_design",
+    "name": "Printing and Design"
+  },
+  {
+    "id": "tutoring",
+    "name": "Tutoring"
+  },
+  {
+    "id": "coding_and_tech_services",
+    "name": "Coding and Tech Services"
+  },
+  {
+    "id": "event_tickets",
+    "name": "Event Tickets"
+  },
+  {
+    "id": "roommate_search",
+    "name": "Roommate Search"
+  },
+  {
+    "id": "transport",
+    "name": "Transport"
+  },
+  {
+    "id": "health_and_wellness",
+    "name": "Health and Wellness"
+  }
+]

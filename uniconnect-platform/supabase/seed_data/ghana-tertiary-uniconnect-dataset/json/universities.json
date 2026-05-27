@@ -1,0 +1,682 @@
+[
+  {
+    "id": "ug",
+    "name": "University of Ghana",
+    "short_name": "UG",
+    "category": "Public University",
+    "location": "Legon",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "knust",
+    "name": "Kwame Nkrumah University of Science and Technology",
+    "short_name": "KNUST",
+    "category": "Public University",
+    "location": "Kumasi",
+    "region": "Ashanti",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "ucc",
+    "name": "University of Cape Coast",
+    "short_name": "UCC",
+    "category": "Public University",
+    "location": "Cape Coast",
+    "region": "Central",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "uew",
+    "name": "University of Education, Winneba",
+    "short_name": "UEW",
+    "category": "Public University",
+    "location": "Winneba",
+    "region": "Central",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "uds",
+    "name": "University for Development Studies",
+    "short_name": "UDS",
+    "category": "Public University",
+    "location": "Tamale",
+    "region": "Northern",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "upsa",
+    "name": "University of Professional Studies, Accra",
+    "short_name": "UPSA",
+    "category": "Public University",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "uhas",
+    "name": "University of Health and Allied Sciences",
+    "short_name": "UHAS",
+    "category": "Public University",
+    "location": "Ho",
+    "region": "Volta",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "uenr",
+    "name": "University of Energy and Natural Resources",
+    "short_name": "UENR",
+    "category": "Public University",
+    "location": "Sunyani",
+    "region": "Bono",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "sdd_ubids",
+    "name": "Simon Diedong Dombo University of Business and Integrated Development Studies",
+    "short_name": "SDD-UBIDS",
+    "category": "Public University",
+    "location": "Wa",
+    "region": "Upper West",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "ckt_utas",
+    "name": "C.K. Tedam University of Technology and Applied Sciences",
+    "short_name": "CKT-UTAS",
+    "category": "Public University",
+    "location": "Navrongo",
+    "region": "Upper East",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "aamusted",
+    "name": "Akenten Appiah-Menka University of Skills Training and Entrepreneurial Development",
+    "short_name": "AAMUSTED",
+    "category": "Public University",
+    "location": "Kumasi",
+    "region": "Ashanti",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "gctu",
+    "name": "Ghana Communication Technology University",
+    "short_name": "GCTU",
+    "category": "Public University",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "unimac",
+    "name": "University of Media, Arts and Communication",
+    "short_name": "UniMAC",
+    "category": "Public University",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "atu",
+    "name": "Accra Technical University",
+    "short_name": "ATU",
+    "category": "Technical University",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "kstu",
+    "name": "Kumasi Technical University",
+    "short_name": "KsTU",
+    "category": "Technical University",
+    "location": "Kumasi",
+    "region": "Ashanti",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "ttu",
+    "name": "Takoradi Technical University",
+    "short_name": "TTU",
+    "category": "Technical University",
+    "location": "Takoradi",
+    "region": "Western",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "ktu",
+    "name": "Koforidua Technical University",
+    "short_name": "KTU",
+    "category": "Technical University",
+    "location": "Koforidua",
+    "region": "Eastern",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "htu",
+    "name": "Ho Technical University",
+    "short_name": "HTU",
+    "category": "Technical University",
+    "location": "Ho",
+    "region": "Volta",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "tatu",
+    "name": "Tamale Technical University",
+    "short_name": "TaTU",
+    "category": "Technical University",
+    "location": "Tamale",
+    "region": "Northern",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "cctu",
+    "name": "Cape Coast Technical University",
+    "short_name": "CCTU",
+    "category": "Technical University",
+    "location": "Cape Coast",
+    "region": "Central",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "stu",
+    "name": "Sunyani Technical University",
+    "short_name": "STU",
+    "category": "Technical University",
+    "location": "Sunyani",
+    "region": "Bono",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "btu",
+    "name": "Bolgatanga Technical University",
+    "short_name": "BTU",
+    "category": "Technical University",
+    "location": "Bolgatanga",
+    "region": "Upper East",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "dhltu",
+    "name": "Dr. Hilla Limann Technical University",
+    "short_name": "DHLTU",
+    "category": "Technical University",
+    "location": "Wa",
+    "region": "Upper West",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "ashesi",
+    "name": "Ashesi University",
+    "short_name": "Ashesi",
+    "category": "Chartered Private University",
+    "location": "Berekuso",
+    "region": "Eastern",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "academic_city",
+    "name": "Academic City University",
+    "short_name": "Academic City",
+    "category": "Chartered Private University",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "central",
+    "name": "Central University",
+    "short_name": "Central",
+    "category": "Chartered Private University",
+    "location": "Miotso",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "vvu",
+    "name": "Valley View University",
+    "short_name": "VVU",
+    "category": "Chartered Private University",
+    "location": "Oyibi",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "pu",
+    "name": "Pentecost University",
+    "short_name": "PU",
+    "category": "Chartered Private University",
+    "location": "Sowutuom",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "regent",
+    "name": "Regent University College of Science and Technology",
+    "short_name": "Regent",
+    "category": "Private Tertiary Institution",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "anu",
+    "name": "All Nations University",
+    "short_name": "ANU",
+    "category": "Chartered Private University",
+    "location": "Koforidua",
+    "region": "Eastern",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "mug",
+    "name": "Methodist University Ghana",
+    "short_name": "MUG",
+    "category": "Chartered Private University",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "cug",
+    "name": "Catholic University of Ghana",
+    "short_name": "CUG",
+    "category": "Chartered Private University",
+    "location": "Fiapre",
+    "region": "Bono",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "gcu",
+    "name": "Garden City University",
+    "short_name": "GCU",
+    "category": "Chartered Private University",
+    "location": "Kumasi",
+    "region": "Ashanti",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "kaaf",
+    "name": "KAAF University",
+    "short_name": "KAAF",
+    "category": "Chartered Private University",
+    "location": "Fetteh Kakraba",
+    "region": "Central",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "fhu",
+    "name": "Family Health University",
+    "short_name": "FHU",
+    "category": "Chartered Private University",
+    "location": "Teshie",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "hcu",
+    "name": "Heritage Christian University",
+    "short_name": "HCU",
+    "category": "Chartered Private University",
+    "location": "Amasaman",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "csu",
+    "name": "Christian Service University",
+    "short_name": "CSU",
+    "category": "Chartered Private University",
+    "location": "Kumasi",
+    "region": "Ashanti",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "lug",
+    "name": "Lancaster University Ghana",
+    "short_name": "LUG",
+    "category": "Private Tertiary Institution",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "bluecrest",
+    "name": "BlueCrest University College",
+    "short_name": "BlueCrest",
+    "category": "Private Tertiary Institution",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "knutsford",
+    "name": "Knutsford University College",
+    "short_name": "Knutsford",
+    "category": "Private Tertiary Institution",
+    "location": "East Legon",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "radford",
+    "name": "Radford University College",
+    "short_name": "Radford",
+    "category": "Private Tertiary Institution",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "jayee",
+    "name": "Jayee University College",
+    "short_name": "Jayee",
+    "category": "Private Tertiary Institution",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "zenith",
+    "name": "Zenith University College",
+    "short_name": "Zenith",
+    "category": "Private Tertiary Institution",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "wiuc_gh",
+    "name": "Wisconsin International University College Ghana",
+    "short_name": "WIUC-GH",
+    "category": "Private Tertiary Institution",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "maranatha",
+    "name": "Maranatha University College",
+    "short_name": "Maranatha",
+    "category": "Private Tertiary Institution",
+    "location": "Sowutuom",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "gbuc",
+    "name": "Ghana Baptist University College",
+    "short_name": "GBUC",
+    "category": "Private Tertiary Institution",
+    "location": "Kumasi",
+    "region": "Ashanti",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "aucb",
+    "name": "African University of Communication and Business",
+    "short_name": "AUCB",
+    "category": "Chartered Private University",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "ensign",
+    "name": "Ensign Global University",
+    "short_name": "Ensign",
+    "category": "Chartered Private University",
+    "location": "Kpong",
+    "region": "Eastern",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "entrance",
+    "name": "Entrance University of Health Sciences",
+    "short_name": "Entrance",
+    "category": "Chartered Private University",
+    "location": "Spintex",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "tts",
+    "name": "Trinity Theological Seminary",
+    "short_name": "TTS",
+    "category": "Chartered Private University",
+    "location": "East Legon",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "aci",
+    "name": "Akrofi-Christaller Institute of Theology, Mission and Culture",
+    "short_name": "ACI",
+    "category": "Chartered Private University",
+    "location": "Akropong",
+    "region": "Eastern",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "acm",
+    "name": "Accra College of Medicine",
+    "short_name": "ACM",
+    "category": "Private Tertiary Institution",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "abetico",
+    "name": "Abetifi College of Education",
+    "short_name": "ABETICO",
+    "category": "Public College of Education",
+    "location": "Abetifi",
+    "region": "Eastern",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "accra_coe",
+    "name": "Accra College of Education",
+    "short_name": "Accra CoE",
+    "category": "Public College of Education",
+    "location": "Accra",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "ada_coe",
+    "name": "Ada College of Education",
+    "short_name": "Ada CoE",
+    "category": "Public College of Education",
+    "location": "Ada",
+    "region": "Greater Accra",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "agogo_presby_coe",
+    "name": "Agogo Presbyterian College of Education",
+    "short_name": "Agogo Presby CoE",
+    "category": "Public College of Education",
+    "location": "Agogo",
+    "region": "Ashanti",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "akatsi_coe",
+    "name": "Akatsi College of Education",
+    "short_name": "Akatsi CoE",
+    "category": "Public College of Education",
+    "location": "Akatsi",
+    "region": "Volta",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "akrokerri_coe",
+    "name": "Akrokerri College of Education",
+    "short_name": "Akrokerri CoE",
+    "category": "Public College of Education",
+    "location": "Akrokerri",
+    "region": "Ashanti",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "atebubu_coe",
+    "name": "Atebubu College of Education",
+    "short_name": "Atebubu CoE",
+    "category": "Public College of Education",
+    "location": "Atebubu",
+    "region": "Bono East",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "bagabaga_coe",
+    "name": "Bagabaga College of Education",
+    "short_name": "Bagabaga CoE",
+    "category": "Public College of Education",
+    "location": "Tamale",
+    "region": "Northern",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "berekum_coe",
+    "name": "Berekum College of Education",
+    "short_name": "Berekum CoE",
+    "category": "Public College of Education",
+    "location": "Berekum",
+    "region": "Bono",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "enchi_coe",
+    "name": "Enchi College of Education",
+    "short_name": "Enchi CoE",
+    "category": "Public College of Education",
+    "location": "Enchi",
+    "region": "Western North",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "fosu_coe",
+    "name": "Fosu College of Education",
+    "short_name": "Fosu CoE",
+    "category": "Public College of Education",
+    "location": "Assin Fosu",
+    "region": "Central",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "gbewaa_coe",
+    "name": "Gbewaa College of Education",
+    "short_name": "Gbewaa CoE",
+    "category": "Public College of Education",
+    "location": "Pusiga",
+    "region": "Upper East",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "holy_child_coe",
+    "name": "Holy Child College of Education",
+    "short_name": "Holy Child CoE",
+    "category": "Public College of Education",
+    "location": "Takoradi",
+    "region": "Western",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "jasikan_coe",
+    "name": "Jasikan College of Education",
+    "short_name": "Jasikan CoE",
+    "category": "Public College of Education",
+    "location": "Jasikan",
+    "region": "Oti",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "mamtech",
+    "name": "Mampong Technical College of Education",
+    "short_name": "MAMTECH",
+    "category": "Public College of Education",
+    "location": "Mampong",
+    "region": "Ashanti",
+    "country": "Ghana",
+    "status": "active"
+  },
+  {
+    "id": "tumu_coe",
+    "name": "Tumu College of Education",
+    "short_name": "Tumu CoE",
+    "category": "Public College of Education",
+    "location": "Tumu",
+    "region": "Upper West",
+    "country": "Ghana",
+    "status": "active"
+  }
+]

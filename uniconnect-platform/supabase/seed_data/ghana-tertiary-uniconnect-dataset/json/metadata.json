@@ -1,0 +1,7 @@
+{
+  "dataset_name": "Ghana Tertiary UniConnect Starter Dataset",
+  "generated_at": "2026-05-27T10:45:42.916760Z",
+  "country": "Ghana",
+  "official_reference": "Ghana Tertiary Education Commission accredited institutions page",
+  "note": "Institution list is a curated starter dataset; faculties/courses are normalized app starter structures and must be verified by each institution."
+}

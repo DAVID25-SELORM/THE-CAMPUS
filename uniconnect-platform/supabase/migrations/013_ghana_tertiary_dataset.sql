@@ -1,0 +1,6 @@
+﻿-- Ghana Tertiary UniConnect Dataset
+-- The full generated seed is too large for Supabase SQL Editor as one query.
+-- Run the split files in order instead:
+-- supabase/migrations/013_ghana_tertiary_dataset_parts/part_001.sql
+-- ...through the final numbered part.
+-- See supabase/migrations/013_ghana_tertiary_dataset_parts/README_RUN_IN_SQL_EDITOR.md

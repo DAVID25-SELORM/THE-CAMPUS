@@ -1,0 +1,30 @@
+[
+  {
+    "id": "student",
+    "name": "student"
+  },
+  {
+    "id": "class_rep",
+    "name": "class_rep"
+  },
+  {
+    "id": "course_rep",
+    "name": "course_rep"
+  },
+  {
+    "id": "group_admin",
+    "name": "group_admin"
+  },
+  {
+    "id": "src_executive",
+    "name": "src_executive"
+  },
+  {
+    "id": "university_admin",
+    "name": "university_admin"
+  },
+  {
+    "id": "super_admin",
+    "name": "super_admin"
+  }
+]

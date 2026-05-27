@@ -1,0 +1,50 @@
+[
+  {
+    "id": "src",
+    "name": "SRC"
+  },
+  {
+    "id": "departmental_association",
+    "name": "Departmental Association"
+  },
+  {
+    "id": "christian_fellowship",
+    "name": "Christian Fellowship"
+  },
+  {
+    "id": "muslim_students_association",
+    "name": "Muslim Students Association"
+  },
+  {
+    "id": "debate_society",
+    "name": "Debate Society"
+  },
+  {
+    "id": "tech_club",
+    "name": "Tech Club"
+  },
+  {
+    "id": "entrepreneurship_club",
+    "name": "Entrepreneurship Club"
+  },
+  {
+    "id": "drama_club",
+    "name": "Drama Club"
+  },
+  {
+    "id": "choir",
+    "name": "Choir"
+  },
+  {
+    "id": "sports_club",
+    "name": "Sports Club"
+  },
+  {
+    "id": "women_commission",
+    "name": "Women Commission"
+  },
+  {
+    "id": "parliamentary_council",
+    "name": "Parliamentary Council"
+  }
+]

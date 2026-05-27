@@ -1,0 +1,17 @@
+{
+  "name": "UniConnect Digital Campus",
+  "short_name": "UniConnect",
+  "description": "A mobile-first digital campus platform for universities.",
+  "start_url": "/feed",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#00f5ff",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

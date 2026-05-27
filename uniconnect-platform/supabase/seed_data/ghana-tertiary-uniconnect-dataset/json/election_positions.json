@@ -1,0 +1,50 @@
+[
+  {
+    "id": "src_president",
+    "name": "SRC President"
+  },
+  {
+    "id": "src_vice_president",
+    "name": "SRC Vice President"
+  },
+  {
+    "id": "general_secretary",
+    "name": "General Secretary"
+  },
+  {
+    "id": "financial_secretary",
+    "name": "Financial Secretary"
+  },
+  {
+    "id": "treasurer",
+    "name": "Treasurer"
+  },
+  {
+    "id": "women_commissioner",
+    "name": "Women Commissioner"
+  },
+  {
+    "id": "organizer",
+    "name": "Organizer"
+  },
+  {
+    "id": "public_relations_officer",
+    "name": "Public Relations Officer"
+  },
+  {
+    "id": "clerk_to_parliament",
+    "name": "Clerk to Parliament"
+  },
+  {
+    "id": "speaker_of_parliament",
+    "name": "Speaker of Parliament"
+  },
+  {
+    "id": "departmental_president",
+    "name": "Departmental President"
+  },
+  {
+    "id": "class_representative",
+    "name": "Class Representative"
+  }
+]

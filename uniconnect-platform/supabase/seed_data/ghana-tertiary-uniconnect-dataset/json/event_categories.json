@@ -1,0 +1,50 @@
+[
+  {
+    "id": "academic",
+    "name": "Academic"
+  },
+  {
+    "id": "religious",
+    "name": "Religious"
+  },
+  {
+    "id": "src",
+    "name": "SRC"
+  },
+  {
+    "id": "departmental",
+    "name": "Departmental"
+  },
+  {
+    "id": "sports",
+    "name": "Sports"
+  },
+  {
+    "id": "entertainment",
+    "name": "Entertainment"
+  },
+  {
+    "id": "career",
+    "name": "Career"
+  },
+  {
+    "id": "tech",
+    "name": "Tech"
+  },
+  {
+    "id": "entrepreneurship",
+    "name": "Entrepreneurship"
+  },
+  {
+    "id": "health",
+    "name": "Health"
+  },
+  {
+    "id": "debate",
+    "name": "Debate"
+  },
+  {
+    "id": "orientation",
+    "name": "Orientation"
+  }
+]

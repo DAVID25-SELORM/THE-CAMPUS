@@ -1,0 +1,69 @@
+id,name,short_name,category,location,region,country,status
+ug,University of Ghana,UG,Public University,Legon,Greater Accra,Ghana,active
+knust,Kwame Nkrumah University of Science and Technology,KNUST,Public University,Kumasi,Ashanti,Ghana,active
+ucc,University of Cape Coast,UCC,Public University,Cape Coast,Central,Ghana,active
+uew,"University of Education, Winneba",UEW,Public University,Winneba,Central,Ghana,active
+uds,University for Development Studies,UDS,Public University,Tamale,Northern,Ghana,active
+upsa,"University of Professional Studies, Accra",UPSA,Public University,Accra,Greater Accra,Ghana,active
+uhas,University of Health and Allied Sciences,UHAS,Public University,Ho,Volta,Ghana,active
+uenr,University of Energy and Natural Resources,UENR,Public University,Sunyani,Bono,Ghana,active
+sdd_ubids,Simon Diedong Dombo University of Business and Integrated Development Studies,SDD-UBIDS,Public University,Wa,Upper West,Ghana,active
+ckt_utas,C.K. Tedam University of Technology and Applied Sciences,CKT-UTAS,Public University,Navrongo,Upper East,Ghana,active
+aamusted,Akenten Appiah-Menka University of Skills Training and Entrepreneurial Development,AAMUSTED,Public University,Kumasi,Ashanti,Ghana,active
+gctu,Ghana Communication Technology University,GCTU,Public University,Accra,Greater Accra,Ghana,active
+unimac,"University of Media, Arts and Communication",UniMAC,Public University,Accra,Greater Accra,Ghana,active
+atu,Accra Technical University,ATU,Technical University,Accra,Greater Accra,Ghana,active
+kstu,Kumasi Technical University,KsTU,Technical University,Kumasi,Ashanti,Ghana,active
+ttu,Takoradi Technical University,TTU,Technical University,Takoradi,Western,Ghana,active
+ktu,Koforidua Technical University,KTU,Technical University,Koforidua,Eastern,Ghana,active
+htu,Ho Technical University,HTU,Technical University,Ho,Volta,Ghana,active
+tatu,Tamale Technical University,TaTU,Technical University,Tamale,Northern,Ghana,active
+cctu,Cape Coast Technical University,CCTU,Technical University,Cape Coast,Central,Ghana,active
+stu,Sunyani Technical University,STU,Technical University,Sunyani,Bono,Ghana,active
+btu,Bolgatanga Technical University,BTU,Technical University,Bolgatanga,Upper East,Ghana,active
+dhltu,Dr. Hilla Limann Technical University,DHLTU,Technical University,Wa,Upper West,Ghana,active
+ashesi,Ashesi University,Ashesi,Chartered Private University,Berekuso,Eastern,Ghana,active
+academic_city,Academic City University,Academic City,Chartered Private University,Accra,Greater Accra,Ghana,active
+central,Central University,Central,Chartered Private University,Miotso,Greater Accra,Ghana,active
+vvu,Valley View University,VVU,Chartered Private University,Oyibi,Greater Accra,Ghana,active
+pu,Pentecost University,PU,Chartered Private University,Sowutuom,Greater Accra,Ghana,active
+regent,Regent University College of Science and Technology,Regent,Private Tertiary Institution,Accra,Greater Accra,Ghana,active
+anu,All Nations University,ANU,Chartered Private University,Koforidua,Eastern,Ghana,active
+mug,Methodist University Ghana,MUG,Chartered Private University,Accra,Greater Accra,Ghana,active
+cug,Catholic University of Ghana,CUG,Chartered Private University,Fiapre,Bono,Ghana,active
+gcu,Garden City University,GCU,Chartered Private University,Kumasi,Ashanti,Ghana,active
+kaaf,KAAF University,KAAF,Chartered Private University,Fetteh Kakraba,Central,Ghana,active
+fhu,Family Health University,FHU,Chartered Private University,Teshie,Greater Accra,Ghana,active
+hcu,Heritage Christian University,HCU,Chartered Private University,Amasaman,Greater Accra,Ghana,active
+csu,Christian Service University,CSU,Chartered Private University,Kumasi,Ashanti,Ghana,active
+lug,Lancaster University Ghana,LUG,Private Tertiary Institution,Accra,Greater Accra,Ghana,active
+bluecrest,BlueCrest University College,BlueCrest,Private Tertiary Institution,Accra,Greater Accra,Ghana,active
+knutsford,Knutsford University College,Knutsford,Private Tertiary Institution,East Legon,Greater Accra,Ghana,active
+radford,Radford University College,Radford,Private Tertiary Institution,Accra,Greater Accra,Ghana,active
+jayee,Jayee University College,Jayee,Private Tertiary Institution,Accra,Greater Accra,Ghana,active
+zenith,Zenith University College,Zenith,Private Tertiary Institution,Accra,Greater Accra,Ghana,active
+wiuc_gh,Wisconsin International University College Ghana,WIUC-GH,Private Tertiary Institution,Accra,Greater Accra,Ghana,active
+maranatha,Maranatha University College,Maranatha,Private Tertiary Institution,Sowutuom,Greater Accra,Ghana,active
+gbuc,Ghana Baptist University College,GBUC,Private Tertiary Institution,Kumasi,Ashanti,Ghana,active
+aucb,African University of Communication and Business,AUCB,Chartered Private University,Accra,Greater Accra,Ghana,active
+ensign,Ensign Global University,Ensign,Chartered Private University,Kpong,Eastern,Ghana,active
+entrance,Entrance University of Health Sciences,Entrance,Chartered Private University,Spintex,Greater Accra,Ghana,active
+tts,Trinity Theological Seminary,TTS,Chartered Private University,East Legon,Greater Accra,Ghana,active
+aci,"Akrofi-Christaller Institute of Theology, Mission and Culture",ACI,Chartered Private University,Akropong,Eastern,Ghana,active
+acm,Accra College of Medicine,ACM,Private Tertiary Institution,Accra,Greater Accra,Ghana,active
+abetico,Abetifi College of Education,ABETICO,Public College of Education,Abetifi,Eastern,Ghana,active
+accra_coe,Accra College of Education,Accra CoE,Public College of Education,Accra,Greater Accra,Ghana,active
+ada_coe,Ada College of Education,Ada CoE,Public College of Education,Ada,Greater Accra,Ghana,active
+agogo_presby_coe,Agogo Presbyterian College of Education,Agogo Presby CoE,Public College of Education,Agogo,Ashanti,Ghana,active
+akatsi_coe,Akatsi College of Education,Akatsi CoE,Public College of Education,Akatsi,Volta,Ghana,active
+akrokerri_coe,Akrokerri College of Education,Akrokerri CoE,Public College of Education,Akrokerri,Ashanti,Ghana,active
+atebubu_coe,Atebubu College of Education,Atebubu CoE,Public College of Education,Atebubu,Bono East,Ghana,active
+bagabaga_coe,Bagabaga College of Education,Bagabaga CoE,Public College of Education,Tamale,Northern,Ghana,active
+berekum_coe,Berekum College of Education,Berekum CoE,Public College of Education,Berekum,Bono,Ghana,active
+enchi_coe,Enchi College of Education,Enchi CoE,Public College of Education,Enchi,Western North,Ghana,active
+fosu_coe,Fosu College of Education,Fosu CoE,Public College of Education,Assin Fosu,Central,Ghana,active
+gbewaa_coe,Gbewaa College of Education,Gbewaa CoE,Public College of Education,Pusiga,Upper East,Ghana,active
+holy_child_coe,Holy Child College of Education,Holy Child CoE,Public College of Education,Takoradi,Western,Ghana,active
+jasikan_coe,Jasikan College of Education,Jasikan CoE,Public College of Education,Jasikan,Oti,Ghana,active
+mamtech,Mampong Technical College of Education,MAMTECH,Public College of Education,Mampong,Ashanti,Ghana,active
+tumu_coe,Tumu College of Education,Tumu CoE,Public College of Education,Tumu,Upper West,Ghana,active

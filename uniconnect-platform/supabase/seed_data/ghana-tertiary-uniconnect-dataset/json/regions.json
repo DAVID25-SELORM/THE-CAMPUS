@@ -1,0 +1,82 @@
+[
+  {
+    "id": "ahafo",
+    "name": "Ahafo",
+    "country": "Ghana"
+  },
+  {
+    "id": "ashanti",
+    "name": "Ashanti",
+    "country": "Ghana"
+  },
+  {
+    "id": "bono",
+    "name": "Bono",
+    "country": "Ghana"
+  },
+  {
+    "id": "bono_east",
+    "name": "Bono East",
+    "country": "Ghana"
+  },
+  {
+    "id": "central",
+    "name": "Central",
+    "country": "Ghana"
+  },
+  {
+    "id": "eastern",
+    "name": "Eastern",
+    "country": "Ghana"
+  },
+  {
+    "id": "greater_accra",
+    "name": "Greater Accra",
+    "country": "Ghana"
+  },
+  {
+    "id": "north_east",
+    "name": "North East",
+    "country": "Ghana"
+  },
+  {
+    "id": "northern",
+    "name": "Northern",
+    "country": "Ghana"
+  },
+  {
+    "id": "oti",
+    "name": "Oti",
+    "country": "Ghana"
+  },
+  {
+    "id": "savannah",
+    "name": "Savannah",
+    "country": "Ghana"
+  },
+  {
+    "id": "upper_east",
+    "name": "Upper East",
+    "country": "Ghana"
+  },
+  {
+    "id": "upper_west",
+    "name": "Upper West",
+    "country": "Ghana"
+  },
+  {
+    "id": "volta",
+    "name": "Volta",
+    "country": "Ghana"
+  },
+  {
+    "id": "western",
+    "name": "Western",
+    "country": "Ghana"
+  },
+  {
+    "id": "western_north",
+    "name": "Western North",
+    "country": "Ghana"
+  }
+]

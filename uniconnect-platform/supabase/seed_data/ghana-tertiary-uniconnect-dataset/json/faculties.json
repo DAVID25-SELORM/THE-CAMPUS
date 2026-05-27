@@ -1,0 +1,1752 @@
+[
+  {
+    "id": "ug_business_and_management_studies",
+    "university_id": "ug",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "ug_computing_and_information_technology",
+    "university_id": "ug",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "ug_engineering_and_built_environment",
+    "university_id": "ug",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "ug_health_sciences",
+    "university_id": "ug",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "ug_arts_humanities_and_social_sciences",
+    "university_id": "ug",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "ug_education",
+    "university_id": "ug",
+    "name": "Education"
+  },
+  {
+    "id": "ug_natural_and_applied_sciences",
+    "university_id": "ug",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "knust_business_and_management_studies",
+    "university_id": "knust",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "knust_computing_and_information_technology",
+    "university_id": "knust",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "knust_engineering_and_built_environment",
+    "university_id": "knust",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "knust_health_sciences",
+    "university_id": "knust",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "knust_arts_humanities_and_social_sciences",
+    "university_id": "knust",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "knust_education",
+    "university_id": "knust",
+    "name": "Education"
+  },
+  {
+    "id": "knust_natural_and_applied_sciences",
+    "university_id": "knust",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "ucc_business_and_management_studies",
+    "university_id": "ucc",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "ucc_computing_and_information_technology",
+    "university_id": "ucc",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "ucc_engineering_and_built_environment",
+    "university_id": "ucc",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "ucc_health_sciences",
+    "university_id": "ucc",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "ucc_arts_humanities_and_social_sciences",
+    "university_id": "ucc",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "ucc_education",
+    "university_id": "ucc",
+    "name": "Education"
+  },
+  {
+    "id": "ucc_natural_and_applied_sciences",
+    "university_id": "ucc",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "uew_business_and_management_studies",
+    "university_id": "uew",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "uew_computing_and_information_technology",
+    "university_id": "uew",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "uew_engineering_and_built_environment",
+    "university_id": "uew",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "uew_health_sciences",
+    "university_id": "uew",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "uew_arts_humanities_and_social_sciences",
+    "university_id": "uew",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "uew_education",
+    "university_id": "uew",
+    "name": "Education"
+  },
+  {
+    "id": "uew_natural_and_applied_sciences",
+    "university_id": "uew",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "uds_business_and_management_studies",
+    "university_id": "uds",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "uds_computing_and_information_technology",
+    "university_id": "uds",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "uds_engineering_and_built_environment",
+    "university_id": "uds",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "uds_health_sciences",
+    "university_id": "uds",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "uds_arts_humanities_and_social_sciences",
+    "university_id": "uds",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "uds_education",
+    "university_id": "uds",
+    "name": "Education"
+  },
+  {
+    "id": "uds_natural_and_applied_sciences",
+    "university_id": "uds",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "upsa_business_and_management_studies",
+    "university_id": "upsa",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "upsa_computing_and_information_technology",
+    "university_id": "upsa",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "upsa_engineering_and_built_environment",
+    "university_id": "upsa",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "upsa_health_sciences",
+    "university_id": "upsa",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "upsa_arts_humanities_and_social_sciences",
+    "university_id": "upsa",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "upsa_education",
+    "university_id": "upsa",
+    "name": "Education"
+  },
+  {
+    "id": "upsa_natural_and_applied_sciences",
+    "university_id": "upsa",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "uhas_business_and_management_studies",
+    "university_id": "uhas",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "uhas_computing_and_information_technology",
+    "university_id": "uhas",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "uhas_engineering_and_built_environment",
+    "university_id": "uhas",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "uhas_health_sciences",
+    "university_id": "uhas",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "uhas_arts_humanities_and_social_sciences",
+    "university_id": "uhas",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "uhas_education",
+    "university_id": "uhas",
+    "name": "Education"
+  },
+  {
+    "id": "uhas_natural_and_applied_sciences",
+    "university_id": "uhas",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "uenr_business_and_management_studies",
+    "university_id": "uenr",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "uenr_computing_and_information_technology",
+    "university_id": "uenr",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "uenr_engineering_and_built_environment",
+    "university_id": "uenr",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "uenr_health_sciences",
+    "university_id": "uenr",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "uenr_arts_humanities_and_social_sciences",
+    "university_id": "uenr",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "uenr_education",
+    "university_id": "uenr",
+    "name": "Education"
+  },
+  {
+    "id": "uenr_natural_and_applied_sciences",
+    "university_id": "uenr",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "sdd_ubids_business_and_management_studies",
+    "university_id": "sdd_ubids",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "sdd_ubids_computing_and_information_technology",
+    "university_id": "sdd_ubids",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "sdd_ubids_engineering_and_built_environment",
+    "university_id": "sdd_ubids",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "sdd_ubids_health_sciences",
+    "university_id": "sdd_ubids",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "sdd_ubids_arts_humanities_and_social_sciences",
+    "university_id": "sdd_ubids",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "sdd_ubids_education",
+    "university_id": "sdd_ubids",
+    "name": "Education"
+  },
+  {
+    "id": "sdd_ubids_natural_and_applied_sciences",
+    "university_id": "sdd_ubids",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "ckt_utas_business_and_management_studies",
+    "university_id": "ckt_utas",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "ckt_utas_computing_and_information_technology",
+    "university_id": "ckt_utas",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "ckt_utas_engineering_and_built_environment",
+    "university_id": "ckt_utas",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "ckt_utas_health_sciences",
+    "university_id": "ckt_utas",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "ckt_utas_arts_humanities_and_social_sciences",
+    "university_id": "ckt_utas",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "ckt_utas_education",
+    "university_id": "ckt_utas",
+    "name": "Education"
+  },
+  {
+    "id": "ckt_utas_natural_and_applied_sciences",
+    "university_id": "ckt_utas",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "aamusted_business_and_management_studies",
+    "university_id": "aamusted",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "aamusted_computing_and_information_technology",
+    "university_id": "aamusted",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "aamusted_engineering_and_built_environment",
+    "university_id": "aamusted",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "aamusted_health_sciences",
+    "university_id": "aamusted",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "aamusted_arts_humanities_and_social_sciences",
+    "university_id": "aamusted",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "aamusted_education",
+    "university_id": "aamusted",
+    "name": "Education"
+  },
+  {
+    "id": "aamusted_natural_and_applied_sciences",
+    "university_id": "aamusted",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "gctu_business_and_management_studies",
+    "university_id": "gctu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "gctu_computing_and_information_technology",
+    "university_id": "gctu",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "gctu_engineering_and_built_environment",
+    "university_id": "gctu",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "gctu_health_sciences",
+    "university_id": "gctu",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "gctu_arts_humanities_and_social_sciences",
+    "university_id": "gctu",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "gctu_education",
+    "university_id": "gctu",
+    "name": "Education"
+  },
+  {
+    "id": "gctu_natural_and_applied_sciences",
+    "university_id": "gctu",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "unimac_business_and_management_studies",
+    "university_id": "unimac",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "unimac_computing_and_information_technology",
+    "university_id": "unimac",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "unimac_engineering_and_built_environment",
+    "university_id": "unimac",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "unimac_health_sciences",
+    "university_id": "unimac",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "unimac_arts_humanities_and_social_sciences",
+    "university_id": "unimac",
+    "name": "Arts, Humanities and Social Sciences"
+  },
+  {
+    "id": "unimac_education",
+    "university_id": "unimac",
+    "name": "Education"
+  },
+  {
+    "id": "unimac_natural_and_applied_sciences",
+    "university_id": "unimac",
+    "name": "Natural and Applied Sciences"
+  },
+  {
+    "id": "atu_applied_sciences_and_technology",
+    "university_id": "atu",
+    "name": "Applied Sciences and Technology"
+  },
+  {
+    "id": "atu_business_and_management_studies",
+    "university_id": "atu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "atu_engineering_and_built_environment",
+    "university_id": "atu",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "atu_creative_arts_and_applied_design",
+    "university_id": "atu",
+    "name": "Creative Arts and Applied Design"
+  },
+  {
+    "id": "atu_hospitality_tourism_and_fashion",
+    "university_id": "atu",
+    "name": "Hospitality, Tourism and Fashion"
+  },
+  {
+    "id": "kstu_applied_sciences_and_technology",
+    "university_id": "kstu",
+    "name": "Applied Sciences and Technology"
+  },
+  {
+    "id": "kstu_business_and_management_studies",
+    "university_id": "kstu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "kstu_engineering_and_built_environment",
+    "university_id": "kstu",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "kstu_creative_arts_and_applied_design",
+    "university_id": "kstu",
+    "name": "Creative Arts and Applied Design"
+  },
+  {
+    "id": "kstu_hospitality_tourism_and_fashion",
+    "university_id": "kstu",
+    "name": "Hospitality, Tourism and Fashion"
+  },
+  {
+    "id": "ttu_applied_sciences_and_technology",
+    "university_id": "ttu",
+    "name": "Applied Sciences and Technology"
+  },
+  {
+    "id": "ttu_business_and_management_studies",
+    "university_id": "ttu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "ttu_engineering_and_built_environment",
+    "university_id": "ttu",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "ttu_creative_arts_and_applied_design",
+    "university_id": "ttu",
+    "name": "Creative Arts and Applied Design"
+  },
+  {
+    "id": "ttu_hospitality_tourism_and_fashion",
+    "university_id": "ttu",
+    "name": "Hospitality, Tourism and Fashion"
+  },
+  {
+    "id": "ktu_applied_sciences_and_technology",
+    "university_id": "ktu",
+    "name": "Applied Sciences and Technology"
+  },
+  {
+    "id": "ktu_business_and_management_studies",
+    "university_id": "ktu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "ktu_engineering_and_built_environment",
+    "university_id": "ktu",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "ktu_creative_arts_and_applied_design",
+    "university_id": "ktu",
+    "name": "Creative Arts and Applied Design"
+  },
+  {
+    "id": "ktu_hospitality_tourism_and_fashion",
+    "university_id": "ktu",
+    "name": "Hospitality, Tourism and Fashion"
+  },
+  {
+    "id": "htu_applied_sciences_and_technology",
+    "university_id": "htu",
+    "name": "Applied Sciences and Technology"
+  },
+  {
+    "id": "htu_business_and_management_studies",
+    "university_id": "htu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "htu_engineering_and_built_environment",
+    "university_id": "htu",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "htu_creative_arts_and_applied_design",
+    "university_id": "htu",
+    "name": "Creative Arts and Applied Design"
+  },
+  {
+    "id": "htu_hospitality_tourism_and_fashion",
+    "university_id": "htu",
+    "name": "Hospitality, Tourism and Fashion"
+  },
+  {
+    "id": "tatu_applied_sciences_and_technology",
+    "university_id": "tatu",
+    "name": "Applied Sciences and Technology"
+  },
+  {
+    "id": "tatu_business_and_management_studies",
+    "university_id": "tatu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "tatu_engineering_and_built_environment",
+    "university_id": "tatu",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "tatu_creative_arts_and_applied_design",
+    "university_id": "tatu",
+    "name": "Creative Arts and Applied Design"
+  },
+  {
+    "id": "tatu_hospitality_tourism_and_fashion",
+    "university_id": "tatu",
+    "name": "Hospitality, Tourism and Fashion"
+  },
+  {
+    "id": "cctu_applied_sciences_and_technology",
+    "university_id": "cctu",
+    "name": "Applied Sciences and Technology"
+  },
+  {
+    "id": "cctu_business_and_management_studies",
+    "university_id": "cctu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "cctu_engineering_and_built_environment",
+    "university_id": "cctu",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "cctu_creative_arts_and_applied_design",
+    "university_id": "cctu",
+    "name": "Creative Arts and Applied Design"
+  },
+  {
+    "id": "cctu_hospitality_tourism_and_fashion",
+    "university_id": "cctu",
+    "name": "Hospitality, Tourism and Fashion"
+  },
+  {
+    "id": "stu_applied_sciences_and_technology",
+    "university_id": "stu",
+    "name": "Applied Sciences and Technology"
+  },
+  {
+    "id": "stu_business_and_management_studies",
+    "university_id": "stu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "stu_engineering_and_built_environment",
+    "university_id": "stu",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "stu_creative_arts_and_applied_design",
+    "university_id": "stu",
+    "name": "Creative Arts and Applied Design"
+  },
+  {
+    "id": "stu_hospitality_tourism_and_fashion",
+    "university_id": "stu",
+    "name": "Hospitality, Tourism and Fashion"
+  },
+  {
+    "id": "btu_applied_sciences_and_technology",
+    "university_id": "btu",
+    "name": "Applied Sciences and Technology"
+  },
+  {
+    "id": "btu_business_and_management_studies",
+    "university_id": "btu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "btu_engineering_and_built_environment",
+    "university_id": "btu",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "btu_creative_arts_and_applied_design",
+    "university_id": "btu",
+    "name": "Creative Arts and Applied Design"
+  },
+  {
+    "id": "btu_hospitality_tourism_and_fashion",
+    "university_id": "btu",
+    "name": "Hospitality, Tourism and Fashion"
+  },
+  {
+    "id": "dhltu_applied_sciences_and_technology",
+    "university_id": "dhltu",
+    "name": "Applied Sciences and Technology"
+  },
+  {
+    "id": "dhltu_business_and_management_studies",
+    "university_id": "dhltu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "dhltu_engineering_and_built_environment",
+    "university_id": "dhltu",
+    "name": "Engineering and Built Environment"
+  },
+  {
+    "id": "dhltu_creative_arts_and_applied_design",
+    "university_id": "dhltu",
+    "name": "Creative Arts and Applied Design"
+  },
+  {
+    "id": "dhltu_hospitality_tourism_and_fashion",
+    "university_id": "dhltu",
+    "name": "Hospitality, Tourism and Fashion"
+  },
+  {
+    "id": "ashesi_business_and_management_studies",
+    "university_id": "ashesi",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "ashesi_computing_and_information_technology",
+    "university_id": "ashesi",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "ashesi_health_sciences",
+    "university_id": "ashesi",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "ashesi_theology_leadership_and_humanities",
+    "university_id": "ashesi",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "ashesi_education",
+    "university_id": "ashesi",
+    "name": "Education"
+  },
+  {
+    "id": "academic_city_business_and_management_studies",
+    "university_id": "academic_city",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "academic_city_computing_and_information_technology",
+    "university_id": "academic_city",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "academic_city_health_sciences",
+    "university_id": "academic_city",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "academic_city_theology_leadership_and_humanities",
+    "university_id": "academic_city",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "academic_city_education",
+    "university_id": "academic_city",
+    "name": "Education"
+  },
+  {
+    "id": "central_business_and_management_studies",
+    "university_id": "central",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "central_computing_and_information_technology",
+    "university_id": "central",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "central_health_sciences",
+    "university_id": "central",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "central_theology_leadership_and_humanities",
+    "university_id": "central",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "central_education",
+    "university_id": "central",
+    "name": "Education"
+  },
+  {
+    "id": "vvu_business_and_management_studies",
+    "university_id": "vvu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "vvu_computing_and_information_technology",
+    "university_id": "vvu",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "vvu_health_sciences",
+    "university_id": "vvu",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "vvu_theology_leadership_and_humanities",
+    "university_id": "vvu",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "vvu_education",
+    "university_id": "vvu",
+    "name": "Education"
+  },
+  {
+    "id": "pu_business_and_management_studies",
+    "university_id": "pu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "pu_computing_and_information_technology",
+    "university_id": "pu",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "pu_health_sciences",
+    "university_id": "pu",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "pu_theology_leadership_and_humanities",
+    "university_id": "pu",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "pu_education",
+    "university_id": "pu",
+    "name": "Education"
+  },
+  {
+    "id": "regent_business_and_management_studies",
+    "university_id": "regent",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "regent_computing_and_information_technology",
+    "university_id": "regent",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "regent_health_sciences",
+    "university_id": "regent",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "regent_media_communication_and_creative_arts",
+    "university_id": "regent",
+    "name": "Media, Communication and Creative Arts"
+  },
+  {
+    "id": "regent_education",
+    "university_id": "regent",
+    "name": "Education"
+  },
+  {
+    "id": "anu_business_and_management_studies",
+    "university_id": "anu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "anu_computing_and_information_technology",
+    "university_id": "anu",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "anu_health_sciences",
+    "university_id": "anu",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "anu_theology_leadership_and_humanities",
+    "university_id": "anu",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "anu_education",
+    "university_id": "anu",
+    "name": "Education"
+  },
+  {
+    "id": "mug_business_and_management_studies",
+    "university_id": "mug",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "mug_computing_and_information_technology",
+    "university_id": "mug",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "mug_health_sciences",
+    "university_id": "mug",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "mug_theology_leadership_and_humanities",
+    "university_id": "mug",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "mug_education",
+    "university_id": "mug",
+    "name": "Education"
+  },
+  {
+    "id": "cug_business_and_management_studies",
+    "university_id": "cug",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "cug_computing_and_information_technology",
+    "university_id": "cug",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "cug_health_sciences",
+    "university_id": "cug",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "cug_theology_leadership_and_humanities",
+    "university_id": "cug",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "cug_education",
+    "university_id": "cug",
+    "name": "Education"
+  },
+  {
+    "id": "gcu_business_and_management_studies",
+    "university_id": "gcu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "gcu_computing_and_information_technology",
+    "university_id": "gcu",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "gcu_health_sciences",
+    "university_id": "gcu",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "gcu_theology_leadership_and_humanities",
+    "university_id": "gcu",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "gcu_education",
+    "university_id": "gcu",
+    "name": "Education"
+  },
+  {
+    "id": "kaaf_business_and_management_studies",
+    "university_id": "kaaf",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "kaaf_computing_and_information_technology",
+    "university_id": "kaaf",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "kaaf_health_sciences",
+    "university_id": "kaaf",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "kaaf_theology_leadership_and_humanities",
+    "university_id": "kaaf",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "kaaf_education",
+    "university_id": "kaaf",
+    "name": "Education"
+  },
+  {
+    "id": "fhu_business_and_management_studies",
+    "university_id": "fhu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "fhu_computing_and_information_technology",
+    "university_id": "fhu",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "fhu_health_sciences",
+    "university_id": "fhu",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "fhu_theology_leadership_and_humanities",
+    "university_id": "fhu",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "fhu_education",
+    "university_id": "fhu",
+    "name": "Education"
+  },
+  {
+    "id": "hcu_business_and_management_studies",
+    "university_id": "hcu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "hcu_computing_and_information_technology",
+    "university_id": "hcu",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "hcu_health_sciences",
+    "university_id": "hcu",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "hcu_theology_leadership_and_humanities",
+    "university_id": "hcu",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "hcu_education",
+    "university_id": "hcu",
+    "name": "Education"
+  },
+  {
+    "id": "csu_business_and_management_studies",
+    "university_id": "csu",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "csu_computing_and_information_technology",
+    "university_id": "csu",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "csu_health_sciences",
+    "university_id": "csu",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "csu_theology_leadership_and_humanities",
+    "university_id": "csu",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "csu_education",
+    "university_id": "csu",
+    "name": "Education"
+  },
+  {
+    "id": "lug_business_and_management_studies",
+    "university_id": "lug",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "lug_computing_and_information_technology",
+    "university_id": "lug",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "lug_health_sciences",
+    "university_id": "lug",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "lug_media_communication_and_creative_arts",
+    "university_id": "lug",
+    "name": "Media, Communication and Creative Arts"
+  },
+  {
+    "id": "lug_education",
+    "university_id": "lug",
+    "name": "Education"
+  },
+  {
+    "id": "bluecrest_business_and_management_studies",
+    "university_id": "bluecrest",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "bluecrest_computing_and_information_technology",
+    "university_id": "bluecrest",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "bluecrest_health_sciences",
+    "university_id": "bluecrest",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "bluecrest_media_communication_and_creative_arts",
+    "university_id": "bluecrest",
+    "name": "Media, Communication and Creative Arts"
+  },
+  {
+    "id": "bluecrest_education",
+    "university_id": "bluecrest",
+    "name": "Education"
+  },
+  {
+    "id": "knutsford_business_and_management_studies",
+    "university_id": "knutsford",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "knutsford_computing_and_information_technology",
+    "university_id": "knutsford",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "knutsford_health_sciences",
+    "university_id": "knutsford",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "knutsford_media_communication_and_creative_arts",
+    "university_id": "knutsford",
+    "name": "Media, Communication and Creative Arts"
+  },
+  {
+    "id": "knutsford_education",
+    "university_id": "knutsford",
+    "name": "Education"
+  },
+  {
+    "id": "radford_business_and_management_studies",
+    "university_id": "radford",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "radford_computing_and_information_technology",
+    "university_id": "radford",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "radford_health_sciences",
+    "university_id": "radford",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "radford_media_communication_and_creative_arts",
+    "university_id": "radford",
+    "name": "Media, Communication and Creative Arts"
+  },
+  {
+    "id": "radford_education",
+    "university_id": "radford",
+    "name": "Education"
+  },
+  {
+    "id": "jayee_business_and_management_studies",
+    "university_id": "jayee",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "jayee_computing_and_information_technology",
+    "university_id": "jayee",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "jayee_health_sciences",
+    "university_id": "jayee",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "jayee_media_communication_and_creative_arts",
+    "university_id": "jayee",
+    "name": "Media, Communication and Creative Arts"
+  },
+  {
+    "id": "jayee_education",
+    "university_id": "jayee",
+    "name": "Education"
+  },
+  {
+    "id": "zenith_business_and_management_studies",
+    "university_id": "zenith",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "zenith_computing_and_information_technology",
+    "university_id": "zenith",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "zenith_health_sciences",
+    "university_id": "zenith",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "zenith_media_communication_and_creative_arts",
+    "university_id": "zenith",
+    "name": "Media, Communication and Creative Arts"
+  },
+  {
+    "id": "zenith_education",
+    "university_id": "zenith",
+    "name": "Education"
+  },
+  {
+    "id": "wiuc_gh_business_and_management_studies",
+    "university_id": "wiuc_gh",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "wiuc_gh_computing_and_information_technology",
+    "university_id": "wiuc_gh",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "wiuc_gh_health_sciences",
+    "university_id": "wiuc_gh",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "wiuc_gh_media_communication_and_creative_arts",
+    "university_id": "wiuc_gh",
+    "name": "Media, Communication and Creative Arts"
+  },
+  {
+    "id": "wiuc_gh_education",
+    "university_id": "wiuc_gh",
+    "name": "Education"
+  },
+  {
+    "id": "maranatha_business_and_management_studies",
+    "university_id": "maranatha",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "maranatha_computing_and_information_technology",
+    "university_id": "maranatha",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "maranatha_health_sciences",
+    "university_id": "maranatha",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "maranatha_media_communication_and_creative_arts",
+    "university_id": "maranatha",
+    "name": "Media, Communication and Creative Arts"
+  },
+  {
+    "id": "maranatha_education",
+    "university_id": "maranatha",
+    "name": "Education"
+  },
+  {
+    "id": "gbuc_business_and_management_studies",
+    "university_id": "gbuc",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "gbuc_computing_and_information_technology",
+    "university_id": "gbuc",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "gbuc_health_sciences",
+    "university_id": "gbuc",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "gbuc_media_communication_and_creative_arts",
+    "university_id": "gbuc",
+    "name": "Media, Communication and Creative Arts"
+  },
+  {
+    "id": "gbuc_education",
+    "university_id": "gbuc",
+    "name": "Education"
+  },
+  {
+    "id": "aucb_business_and_management_studies",
+    "university_id": "aucb",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "aucb_computing_and_information_technology",
+    "university_id": "aucb",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "aucb_health_sciences",
+    "university_id": "aucb",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "aucb_theology_leadership_and_humanities",
+    "university_id": "aucb",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "aucb_education",
+    "university_id": "aucb",
+    "name": "Education"
+  },
+  {
+    "id": "ensign_business_and_management_studies",
+    "university_id": "ensign",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "ensign_computing_and_information_technology",
+    "university_id": "ensign",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "ensign_health_sciences",
+    "university_id": "ensign",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "ensign_theology_leadership_and_humanities",
+    "university_id": "ensign",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "ensign_education",
+    "university_id": "ensign",
+    "name": "Education"
+  },
+  {
+    "id": "entrance_business_and_management_studies",
+    "university_id": "entrance",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "entrance_computing_and_information_technology",
+    "university_id": "entrance",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "entrance_health_sciences",
+    "university_id": "entrance",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "entrance_theology_leadership_and_humanities",
+    "university_id": "entrance",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "entrance_education",
+    "university_id": "entrance",
+    "name": "Education"
+  },
+  {
+    "id": "tts_business_and_management_studies",
+    "university_id": "tts",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "tts_computing_and_information_technology",
+    "university_id": "tts",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "tts_health_sciences",
+    "university_id": "tts",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "tts_theology_leadership_and_humanities",
+    "university_id": "tts",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "tts_education",
+    "university_id": "tts",
+    "name": "Education"
+  },
+  {
+    "id": "aci_business_and_management_studies",
+    "university_id": "aci",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "aci_computing_and_information_technology",
+    "university_id": "aci",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "aci_health_sciences",
+    "university_id": "aci",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "aci_theology_leadership_and_humanities",
+    "university_id": "aci",
+    "name": "Theology, Leadership and Humanities"
+  },
+  {
+    "id": "aci_education",
+    "university_id": "aci",
+    "name": "Education"
+  },
+  {
+    "id": "acm_business_and_management_studies",
+    "university_id": "acm",
+    "name": "Business and Management Studies"
+  },
+  {
+    "id": "acm_computing_and_information_technology",
+    "university_id": "acm",
+    "name": "Computing and Information Technology"
+  },
+  {
+    "id": "acm_health_sciences",
+    "university_id": "acm",
+    "name": "Health Sciences"
+  },
+  {
+    "id": "acm_media_communication_and_creative_arts",
+    "university_id": "acm",
+    "name": "Media, Communication and Creative Arts"
+  },
+  {
+    "id": "acm_education",
+    "university_id": "acm",
+    "name": "Education"
+  },
+  {
+    "id": "abetico_education",
+    "university_id": "abetico",
+    "name": "Education"
+  },
+  {
+    "id": "abetico_basic_education",
+    "university_id": "abetico",
+    "name": "Basic Education"
+  },
+  {
+    "id": "abetico_early_childhood_education",
+    "university_id": "abetico",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "abetico_junior_high_school_education",
+    "university_id": "abetico",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "accra_coe_education",
+    "university_id": "accra_coe",
+    "name": "Education"
+  },
+  {
+    "id": "accra_coe_basic_education",
+    "university_id": "accra_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "accra_coe_early_childhood_education",
+    "university_id": "accra_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "accra_coe_junior_high_school_education",
+    "university_id": "accra_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "ada_coe_education",
+    "university_id": "ada_coe",
+    "name": "Education"
+  },
+  {
+    "id": "ada_coe_basic_education",
+    "university_id": "ada_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "ada_coe_early_childhood_education",
+    "university_id": "ada_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "ada_coe_junior_high_school_education",
+    "university_id": "ada_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "agogo_presby_coe_education",
+    "university_id": "agogo_presby_coe",
+    "name": "Education"
+  },
+  {
+    "id": "agogo_presby_coe_basic_education",
+    "university_id": "agogo_presby_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "agogo_presby_coe_early_childhood_education",
+    "university_id": "agogo_presby_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "agogo_presby_coe_junior_high_school_education",
+    "university_id": "agogo_presby_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "akatsi_coe_education",
+    "university_id": "akatsi_coe",
+    "name": "Education"
+  },
+  {
+    "id": "akatsi_coe_basic_education",
+    "university_id": "akatsi_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "akatsi_coe_early_childhood_education",
+    "university_id": "akatsi_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "akatsi_coe_junior_high_school_education",
+    "university_id": "akatsi_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "akrokerri_coe_education",
+    "university_id": "akrokerri_coe",
+    "name": "Education"
+  },
+  {
+    "id": "akrokerri_coe_basic_education",
+    "university_id": "akrokerri_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "akrokerri_coe_early_childhood_education",
+    "university_id": "akrokerri_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "akrokerri_coe_junior_high_school_education",
+    "university_id": "akrokerri_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "atebubu_coe_education",
+    "university_id": "atebubu_coe",
+    "name": "Education"
+  },
+  {
+    "id": "atebubu_coe_basic_education",
+    "university_id": "atebubu_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "atebubu_coe_early_childhood_education",
+    "university_id": "atebubu_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "atebubu_coe_junior_high_school_education",
+    "university_id": "atebubu_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "bagabaga_coe_education",
+    "university_id": "bagabaga_coe",
+    "name": "Education"
+  },
+  {
+    "id": "bagabaga_coe_basic_education",
+    "university_id": "bagabaga_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "bagabaga_coe_early_childhood_education",
+    "university_id": "bagabaga_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "bagabaga_coe_junior_high_school_education",
+    "university_id": "bagabaga_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "berekum_coe_education",
+    "university_id": "berekum_coe",
+    "name": "Education"
+  },
+  {
+    "id": "berekum_coe_basic_education",
+    "university_id": "berekum_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "berekum_coe_early_childhood_education",
+    "university_id": "berekum_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "berekum_coe_junior_high_school_education",
+    "university_id": "berekum_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "enchi_coe_education",
+    "university_id": "enchi_coe",
+    "name": "Education"
+  },
+  {
+    "id": "enchi_coe_basic_education",
+    "university_id": "enchi_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "enchi_coe_early_childhood_education",
+    "university_id": "enchi_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "enchi_coe_junior_high_school_education",
+    "university_id": "enchi_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "fosu_coe_education",
+    "university_id": "fosu_coe",
+    "name": "Education"
+  },
+  {
+    "id": "fosu_coe_basic_education",
+    "university_id": "fosu_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "fosu_coe_early_childhood_education",
+    "university_id": "fosu_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "fosu_coe_junior_high_school_education",
+    "university_id": "fosu_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "gbewaa_coe_education",
+    "university_id": "gbewaa_coe",
+    "name": "Education"
+  },
+  {
+    "id": "gbewaa_coe_basic_education",
+    "university_id": "gbewaa_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "gbewaa_coe_early_childhood_education",
+    "university_id": "gbewaa_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "gbewaa_coe_junior_high_school_education",
+    "university_id": "gbewaa_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "holy_child_coe_education",
+    "university_id": "holy_child_coe",
+    "name": "Education"
+  },
+  {
+    "id": "holy_child_coe_basic_education",
+    "university_id": "holy_child_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "holy_child_coe_early_childhood_education",
+    "university_id": "holy_child_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "holy_child_coe_junior_high_school_education",
+    "university_id": "holy_child_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "jasikan_coe_education",
+    "university_id": "jasikan_coe",
+    "name": "Education"
+  },
+  {
+    "id": "jasikan_coe_basic_education",
+    "university_id": "jasikan_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "jasikan_coe_early_childhood_education",
+    "university_id": "jasikan_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "jasikan_coe_junior_high_school_education",
+    "university_id": "jasikan_coe",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "mamtech_education",
+    "university_id": "mamtech",
+    "name": "Education"
+  },
+  {
+    "id": "mamtech_basic_education",
+    "university_id": "mamtech",
+    "name": "Basic Education"
+  },
+  {
+    "id": "mamtech_early_childhood_education",
+    "university_id": "mamtech",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "mamtech_junior_high_school_education",
+    "university_id": "mamtech",
+    "name": "Junior High School Education"
+  },
+  {
+    "id": "tumu_coe_education",
+    "university_id": "tumu_coe",
+    "name": "Education"
+  },
+  {
+    "id": "tumu_coe_basic_education",
+    "university_id": "tumu_coe",
+    "name": "Basic Education"
+  },
+  {
+    "id": "tumu_coe_early_childhood_education",
+    "university_id": "tumu_coe",
+    "name": "Early Childhood Education"
+  },
+  {
+    "id": "tumu_coe_junior_high_school_education",
+    "university_id": "tumu_coe",
+    "name": "Junior High School Education"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "hall",
+    "name": "Hall"
+  },
+  {
+    "id": "hostel",
+    "name": "Hostel"
+  },
+  {
+    "id": "private_hostel",
+    "name": "Private Hostel"
+  },
+  {
+    "id": "homestel",
+    "name": "Homestel"
+  },
+  {
+    "id": "off_campus_residence",
+    "name": "Off-campus Residence"
+  }
+]

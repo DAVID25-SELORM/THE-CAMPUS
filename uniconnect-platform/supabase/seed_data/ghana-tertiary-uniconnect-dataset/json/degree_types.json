@@ -1,0 +1,34 @@
+[
+  {
+    "id": "certificate",
+    "name": "Certificate"
+  },
+  {
+    "id": "diploma",
+    "name": "Diploma"
+  },
+  {
+    "id": "hnd",
+    "name": "HND"
+  },
+  {
+    "id": "bachelor",
+    "name": "Bachelor"
+  },
+  {
+    "id": "postgraduate_diploma",
+    "name": "Postgraduate Diploma"
+  },
+  {
+    "id": "masters",
+    "name": "Masters"
+  },
+  {
+    "id": "mphil",
+    "name": "MPhil"
+  },
+  {
+    "id": "phd",
+    "name": "PhD"
+  }
+]

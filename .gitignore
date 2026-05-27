@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+
+uniconnect-platform/node_modules/
+uniconnect-platform/dist/
+uniconnect-platform/.env
+uniconnect-platform/.env.local
+uniconnect-platform/.env.*.local
