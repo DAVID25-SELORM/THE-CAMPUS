@@ -51,6 +51,11 @@ function optionLabel(item) {
 function SearchableSelect({ id, placeholder, value, options, onChange, required = false }) {
   const selectedLabel = optionLabel(options.find(item => item.id === value));
   const [draft, setDraft] = useState(selectedLabel);
+  const [open, setOpen] = useState(false);
+
+  const filteredOptions = options
+    .filter(item => optionLabel(item).toLowerCase().includes(draft.trim().toLowerCase()))
+    .slice(0, 8);
 
   useEffect(() => {
     setDraft(selectedLabel);
@@ -62,19 +67,46 @@ function SearchableSelect({ id, placeholder, value, options, onChange, required 
     onChange(match?.id || "");
   }
 
+  function selectOption(item) {
+    setDraft(optionLabel(item));
+    setOpen(false);
+    onChange(item.id);
+  }
+
   return (
-    <div className="grid gap-2">
+    <div className="relative">
       <input
         className="input"
-        list={`${id}-options`}
         placeholder={placeholder}
         value={draft}
-        onChange={e => update(e.target.value)}
+        onChange={e => {
+          setOpen(true);
+          update(e.target.value);
+        }}
+        onFocus={() => setOpen(true)}
+        onBlur={() => window.setTimeout(() => setOpen(false), 120)}
         required={required}
       />
-      <datalist id={`${id}-options`}>
-        {options.map(item => <option key={item.id} value={optionLabel(item)} />)}
-      </datalist>
+      {open && (
+        <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 max-h-64 overflow-auto rounded-2xl border border-white/10 bg-slate-950 shadow-2xl">
+          {filteredOptions.length === 0 && (
+            <div className="px-4 py-3 text-sm text-slate-400">
+              {options.length === 0 ? "Choose the previous field first." : "No matching option."}
+            </div>
+          )}
+          {filteredOptions.map(item => (
+            <button
+              key={item.id}
+              type="button"
+              className="block w-full px-4 py-3 text-left hover:bg-cyan-300/15"
+              onMouseDown={event => event.preventDefault()}
+              onClick={() => selectOption(item)}
+            >
+              {optionLabel(item)}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
