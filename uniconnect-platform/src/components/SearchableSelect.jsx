@@ -5,8 +5,11 @@ export function SearchableSelect({ id, placeholder, value, options, onChange, re
   const [draft, setDraft] = useState(selected?.label || "");
   const [open, setOpen] = useState(false);
 
+  const activeFilter = draft.trim().toLowerCase() === (selected?.label || "").toLowerCase()
+    ? ""
+    : draft.trim().toLowerCase();
   const filteredOptions = options
-    .filter(option => option.label.toLowerCase().includes(draft.trim().toLowerCase()))
+    .filter(option => option.label.toLowerCase().includes(activeFilter))
     .slice(0, 8);
 
   useEffect(() => {

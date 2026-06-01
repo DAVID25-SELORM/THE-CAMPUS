@@ -53,8 +53,11 @@ function SearchableSelect({ id, placeholder, value, options, onChange, required 
   const [draft, setDraft] = useState(selectedLabel);
   const [open, setOpen] = useState(false);
 
+  const activeFilter = draft.trim().toLowerCase() === selectedLabel.toLowerCase()
+    ? ""
+    : draft.trim().toLowerCase();
   const filteredOptions = options
-    .filter(item => optionLabel(item).toLowerCase().includes(draft.trim().toLowerCase()))
+    .filter(item => optionLabel(item).toLowerCase().includes(activeFilter))
     .slice(0, 8);
 
   useEffect(() => {
@@ -112,20 +115,54 @@ function SearchableSelect({ id, placeholder, value, options, onChange, required 
 }
 
 function SuggestInput({ id, placeholder, value, options, onChange, required = false }) {
+  const [open, setOpen] = useState(false);
+  const activeFilter = options.some(option => option.toLowerCase() === String(value).trim().toLowerCase())
+    ? ""
+    : String(value).trim().toLowerCase();
+  const filteredOptions = options
+    .filter(option => option.toLowerCase().includes(activeFilter))
+    .slice(0, 8);
+
+  function selectOption(option) {
+    setOpen(false);
+    onChange(option);
+  }
+
   return (
-    <>
+    <div className="relative">
       <input
         className="input"
-        list={`${id}-options`}
         placeholder={placeholder}
         value={value}
-        onChange={e => onChange(e.target.value)}
+        onChange={e => {
+          setOpen(true);
+          onChange(e.target.value);
+        }}
+        onFocus={() => setOpen(true)}
+        onBlur={() => window.setTimeout(() => setOpen(false), 120)}
         required={required}
       />
-      <datalist id={`${id}-options`}>
-        {options.map(option => <option key={option} value={option} />)}
-      </datalist>
-    </>
+      {open && (
+        <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 max-h-64 overflow-auto rounded-2xl border border-white/10 bg-slate-950 shadow-2xl">
+          {filteredOptions.length === 0 && (
+            <div className="px-4 py-3 text-sm text-slate-400">
+              {options.length === 0 ? "No options loaded yet." : "No matching option."}
+            </div>
+          )}
+          {filteredOptions.map(option => (
+            <button
+              key={option}
+              type="button"
+              className="block w-full px-4 py-3 text-left hover:bg-cyan-300/15"
+              onMouseDown={event => event.preventDefault()}
+              onClick={() => selectOption(option)}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 

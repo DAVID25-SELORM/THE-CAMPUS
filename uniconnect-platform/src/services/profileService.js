@@ -42,11 +42,34 @@ export async function getProgrammes(universityId, departmentId) {
 }
 
 export async function getCourses(universityId, filters = {}) {
-  let query = supabase.from("courses").select("*").eq("university_id", universityId);
-  if (filters.department_id) query = query.eq("department_id", filters.department_id);
-  if (filters.programme_id) query = query.eq("programme_id", filters.programme_id);
-  if (filters.level) query = query.eq("level", String(filters.level));
-  return query.order("name");
+  const runQuery = (queryFilters) => {
+    let query = supabase.from("courses").select("*").eq("university_id", universityId);
+    if (queryFilters.department_id) query = query.eq("department_id", queryFilters.department_id);
+    if (queryFilters.programme_id) query = query.eq("programme_id", queryFilters.programme_id);
+    if (queryFilters.level) query = query.eq("level", String(queryFilters.level));
+    return query.order("name");
+  };
+
+  const exactResult = await runQuery(filters);
+  if (exactResult.error || exactResult.data?.length || (!filters.programme_id && !filters.level)) {
+    return exactResult;
+  }
+
+  if (filters.programme_id && filters.level) {
+    const programmeResult = await runQuery({ ...filters, level: "" });
+    if (programmeResult.error || programmeResult.data?.length) return programmeResult;
+  }
+
+  if (filters.department_id && filters.programme_id) {
+    const departmentLevelResult = await runQuery({ ...filters, programme_id: "" });
+    if (departmentLevelResult.error || departmentLevelResult.data?.length) return departmentLevelResult;
+  }
+
+  if (filters.department_id) {
+    return runQuery({ department_id: filters.department_id });
+  }
+
+  return exactResult;
 }
 
 export async function getAcademicLevels(universityId) {
