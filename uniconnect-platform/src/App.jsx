@@ -18,6 +18,7 @@ import Messages from "./pages/messages/Messages.jsx";
 import Notifications from "./pages/notifications/Notifications.jsx";
 import Profile from "./pages/profile/Profile.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import AcademicSetup from "./pages/admin/AcademicSetup.jsx";
 
 function PrivateRoute({ children }) {
   const { session, loading } = useAuth();
@@ -62,6 +63,7 @@ function AppRoutes() {
         <Route path="notifications" element={<Notifications />} />
         <Route path="profile" element={<Profile />} />
         <Route path="admin" element={<AdminDashboard />} />
+        <Route path="admin/academic-setup" element={<AcademicSetup />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/feed" replace />} />

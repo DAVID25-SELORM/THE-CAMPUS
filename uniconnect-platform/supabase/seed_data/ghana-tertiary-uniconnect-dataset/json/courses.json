@@ -304,12 +304,17 @@
     "university_id": "ug",
     "faculty_id": "ug_computing_and_information_technology",
     "department_id": "ug_computing_and_information_technology_computer_science",
-    "code": "CS102",
-    "name": "Data Structures and Algorithms",
+    "code": "SICS 2643",
+    "name": "Computer Architecture and Microprocessor",
     "level": 200,
     "credits": 3,
     "semester": "Semester 2",
-    "course_type": "core"
+    "course_type": "core",
+    "sessions": [
+      "Regular",
+      "Weekend"
+    ],
+    "source_status": "school_verified"
   },
   {
     "id": "ug_computing_and_information_technology_computer_science_course_3",
@@ -41664,10 +41669,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_computer_science_course_1",
+    "id": "regent_fecas_computing_course_1",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_computer_science",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_computing",
     "code": "CS101",
     "name": "Programming Fundamentals",
     "level": 100,
@@ -41676,10 +41681,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_computer_science_course_2",
+    "id": "regent_fecas_computing_course_2",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_computer_science",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_computing",
     "code": "CS102",
     "name": "Data Structures and Algorithms",
     "level": 200,
@@ -41688,10 +41693,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_computer_science_course_3",
+    "id": "regent_fecas_computing_course_3",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_computer_science",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_computing",
     "code": "CS103",
     "name": "Database Systems",
     "level": 300,
@@ -41700,10 +41705,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_computer_science_course_4",
+    "id": "regent_fecas_computing_course_4",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_computer_science",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_computing",
     "code": "CS104",
     "name": "Operating Systems",
     "level": 400,
@@ -41712,10 +41717,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_information_technology_course_1",
+    "id": "regent_fecas_information_technology_course_1",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_information_technology",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_information_technology",
     "code": "IT101",
     "name": "Networking",
     "level": 100,
@@ -41724,10 +41729,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_information_technology_course_2",
+    "id": "regent_fecas_information_technology_course_2",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_information_technology",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_information_technology",
     "code": "IT102",
     "name": "Web Technologies",
     "level": 200,
@@ -41736,10 +41741,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_information_technology_course_3",
+    "id": "regent_fecas_information_technology_course_3",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_information_technology",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_information_technology",
     "code": "IT103",
     "name": "Systems Administration",
     "level": 300,
@@ -41748,10 +41753,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_information_technology_course_4",
+    "id": "regent_fecas_information_technology_course_4",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_information_technology",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_information_technology",
     "code": "IT104",
     "name": "Cloud Computing",
     "level": 400,
@@ -41760,10 +41765,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_information_systems_course_1",
+    "id": "regent_fecas_information_systems_course_1",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_information_systems",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_information_systems",
     "code": "IS101",
     "name": "Systems Analysis and Design",
     "level": 100,
@@ -41772,10 +41777,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_information_systems_course_2",
+    "id": "regent_fecas_information_systems_course_2",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_information_systems",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_information_systems",
     "code": "IS102",
     "name": "Database Management",
     "level": 200,
@@ -41784,10 +41789,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_information_systems_course_3",
+    "id": "regent_fecas_information_systems_course_3",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_information_systems",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_information_systems",
     "code": "IS103",
     "name": "Enterprise Systems",
     "level": 300,
@@ -41796,10 +41801,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_information_systems_course_4",
+    "id": "regent_fecas_information_systems_course_4",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_information_systems",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_information_systems",
     "code": "IS104",
     "name": "IT Project Management",
     "level": 400,
@@ -41808,10 +41813,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_cybersecurity_course_1",
+    "id": "regent_fecas_cybersecurity_course_1",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_cybersecurity",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_cybersecurity",
     "code": "C101",
     "name": "Network Security",
     "level": 100,
@@ -41820,10 +41825,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_cybersecurity_course_2",
+    "id": "regent_fecas_cybersecurity_course_2",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_cybersecurity",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_cybersecurity",
     "code": "C102",
     "name": "Ethical Hacking",
     "level": 200,
@@ -41832,10 +41837,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_cybersecurity_course_3",
+    "id": "regent_fecas_cybersecurity_course_3",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_cybersecurity",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_cybersecurity",
     "code": "C103",
     "name": "Digital Forensics",
     "level": 300,
@@ -41844,10 +41849,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_cybersecurity_course_4",
+    "id": "regent_fecas_cybersecurity_course_4",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_cybersecurity",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_cybersecurity",
     "code": "C104",
     "name": "Security Governance",
     "level": 400,
@@ -41856,10 +41861,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_data_science_course_1",
+    "id": "regent_fecas_data_science_course_1",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_data_science",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_data_science",
     "code": "DS101",
     "name": "Statistics for Data Science",
     "level": 100,
@@ -41868,10 +41873,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_data_science_course_2",
+    "id": "regent_fecas_data_science_course_2",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_data_science",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_data_science",
     "code": "DS102",
     "name": "Machine Learning",
     "level": 200,
@@ -41880,10 +41885,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_data_science_course_3",
+    "id": "regent_fecas_data_science_course_3",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_data_science",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_data_science",
     "code": "DS103",
     "name": "Data Visualization",
     "level": 300,
@@ -41892,10 +41897,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_data_science_course_4",
+    "id": "regent_fecas_data_science_course_4",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_data_science",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_data_science",
     "code": "DS104",
     "name": "Big Data Analytics",
     "level": 400,
@@ -41904,10 +41909,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_software_engineering_course_1",
+    "id": "regent_fecas_software_engineering_course_1",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_software_engineering",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_software_engineering",
     "code": "SE101",
     "name": "Software Requirements",
     "level": 100,
@@ -41916,10 +41921,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_software_engineering_course_2",
+    "id": "regent_fecas_software_engineering_course_2",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_software_engineering",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_software_engineering",
     "code": "SE102",
     "name": "Software Design",
     "level": 200,
@@ -41928,10 +41933,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_software_engineering_course_3",
+    "id": "regent_fecas_software_engineering_course_3",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_software_engineering",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_software_engineering",
     "code": "SE103",
     "name": "Software Testing",
     "level": 300,
@@ -41940,10 +41945,10 @@
     "course_type": "core"
   },
   {
-    "id": "regent_computing_and_information_technology_software_engineering_course_4",
+    "id": "regent_fecas_software_engineering_course_4",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "department_id": "regent_computing_and_information_technology_software_engineering",
+    "faculty_id": "regent_fecas",
+    "department_id": "regent_fecas_software_engineering",
     "code": "SE104",
     "name": "DevOps",
     "level": 400,

@@ -5208,39 +5208,40 @@
     "name": "Business Administration"
   },
   {
-    "id": "regent_computing_and_information_technology_computer_science",
+    "id": "regent_fecas_computing",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
-    "name": "Computer Science"
+    "faculty_id": "regent_fecas",
+    "name": "Computing",
+    "source_status": "school_verified"
   },
   {
-    "id": "regent_computing_and_information_technology_information_technology",
+    "id": "regent_fecas_information_technology",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
+    "faculty_id": "regent_fecas",
     "name": "Information Technology"
   },
   {
-    "id": "regent_computing_and_information_technology_information_systems",
+    "id": "regent_fecas_information_systems",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
+    "faculty_id": "regent_fecas",
     "name": "Information Systems"
   },
   {
-    "id": "regent_computing_and_information_technology_cybersecurity",
+    "id": "regent_fecas_cybersecurity",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
+    "faculty_id": "regent_fecas",
     "name": "Cybersecurity"
   },
   {
-    "id": "regent_computing_and_information_technology_data_science",
+    "id": "regent_fecas_data_science",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
+    "faculty_id": "regent_fecas",
     "name": "Data Science"
   },
   {
-    "id": "regent_computing_and_information_technology_software_engineering",
+    "id": "regent_fecas_software_engineering",
     "university_id": "regent",
-    "faculty_id": "regent_computing_and_information_technology",
+    "faculty_id": "regent_fecas",
     "name": "Software Engineering"
   },
   {

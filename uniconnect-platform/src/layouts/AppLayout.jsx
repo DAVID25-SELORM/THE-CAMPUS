@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { Bell, Home, Users, Store, CalendarDays, Vote, MessageCircle, User, Shield, LogOut, BriefcaseBusiness, Building2 } from "lucide-react";
+import { Bell, Home, Users, Store, CalendarDays, Vote, MessageCircle, User, Shield, LogOut, BriefcaseBusiness, Building2, GraduationCap } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import Logo from "../components/Logo";
 import { setOnlinePresence } from "../services/presenceService";
@@ -16,6 +16,7 @@ const links = [
   ["Alerts", "/notifications", Bell],
   ["Profile", "/profile", User],
   ["Admin", "/admin", Shield],
+  ["Academic Setup", "/admin/academic-setup", GraduationCap],
   ["Enterprise", "/enterprise", Building2],
 ];
 
@@ -80,7 +81,7 @@ export default function AppLayout() {
       </main>
 
       <nav className="lg:hidden fixed bottom-0 inset-x-0 glass rounded-none border-x-0 border-b-0 grid grid-cols-7 px-2 py-2">
-        {links.filter(([label]) => !["Elections", "Admin", "Career", "Enterprise"].includes(label)).map(([label, to, Icon]) => (
+        {links.filter(([label]) => !["Elections", "Admin", "Academic Setup", "Career", "Enterprise"].includes(label)).map(([label, to, Icon]) => (
           <NavLink key={to} to={to} className={({isActive}) => `grid place-items-center gap-1 text-[10px] ${isActive ? "text-cyan-200 font-bold" : "muted"}`}>
             <Icon size={20} /> {label}
           </NavLink>

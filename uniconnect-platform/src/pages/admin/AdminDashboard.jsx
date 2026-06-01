@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { supabase } from "../../services/supabase";
 import StatCard from "../../components/StatCard";
 import { useAuth } from "../../hooks/useAuth";
@@ -39,8 +40,9 @@ export default function AdminDashboard() {
       </div>
 
       <div className="card mt-6">
-        <h2 className="text-xl font-black">Next Admin Features</h2>
-        <p className="muted mt-2">Approve students, moderate posts, manage schools, configure elections, and review reports.</p>
+        <h2 className="text-xl font-black">University Admin Academic Setup</h2>
+        <p className="muted mt-2">Edit faculties, departments, programmes, courses, course codes, levels, sessions, and campuses.</p>
+        <Link className="btn inline-flex mt-4" to="/admin/academic-setup">Open Academic Setup</Link>
       </div>
     </div>
   );

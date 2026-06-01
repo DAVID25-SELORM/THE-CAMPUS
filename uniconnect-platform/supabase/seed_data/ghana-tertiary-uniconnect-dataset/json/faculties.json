@@ -835,9 +835,11 @@
     "name": "Business and Management Studies"
   },
   {
-    "id": "regent_computing_and_information_technology",
+    "id": "regent_fecas",
     "university_id": "regent",
-    "name": "Computing and Information Technology"
+    "name": "Faculty of Engineering, Computing and Allied Sciences",
+    "code": "FECAS",
+    "source_status": "school_verified"
   },
   {
     "id": "regent_health_sciences",
