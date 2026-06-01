@@ -16,6 +16,62 @@ import {
 const currentYear = new Date().getFullYear();
 const currentAcademicYear = `${currentYear}/${currentYear + 1}`;
 const sessionFallbacks = ["Regular", "Weekend", "Evening", "Distance"];
+const semesterOptions = ["Semester 1", "Semester 2", "Trimester 1", "Trimester 2", "Trimester 3"];
+
+function optionLabel(item) {
+  if (!item) return "";
+  if (item.code && item.name) return `${item.name} (${item.code})`;
+  return item.name || item.level || "";
+}
+
+function SearchableSelect({ id, placeholder, value, options, onChange, required = false }) {
+  const selectedLabel = optionLabel(options.find(item => item.id === value));
+  const [draft, setDraft] = useState(selectedLabel);
+
+  useEffect(() => {
+    setDraft(selectedLabel);
+  }, [selectedLabel]);
+
+  function update(nextValue) {
+    setDraft(nextValue);
+    const match = options.find(item => optionLabel(item).toLowerCase() === nextValue.trim().toLowerCase());
+    onChange(match?.id || "");
+  }
+
+  return (
+    <div className="grid gap-2">
+      <input
+        className="input"
+        list={`${id}-options`}
+        placeholder={placeholder}
+        value={draft}
+        onChange={e => update(e.target.value)}
+        required={required}
+      />
+      <datalist id={`${id}-options`}>
+        {options.map(item => <option key={item.id} value={optionLabel(item)} />)}
+      </datalist>
+    </div>
+  );
+}
+
+function SuggestInput({ id, placeholder, value, options, onChange, required = false }) {
+  return (
+    <>
+      <input
+        className="input"
+        list={`${id}-options`}
+        placeholder={placeholder}
+        value={value}
+        onChange={e => onChange(e.target.value)}
+        required={required}
+      />
+      <datalist id={`${id}-options`}>
+        {options.map(option => <option key={option} value={option} />)}
+      </datalist>
+    </>
+  );
+}
 
 export default function VerifyStudent() {
   const { user, profile, refreshProfile } = useAuth();
@@ -250,46 +306,21 @@ export default function VerifyStudent() {
       <form onSubmit={submit} className="card mt-6 grid gap-4 max-w-3xl">
         <input className="input" placeholder="Full name" value={form.full_name} onChange={e => setField("full_name", e.target.value)} required />
 
-        <select className="input" value={form.university_id} onChange={e => setField("university_id", e.target.value)} required>
-          <option value="">University</option>
-          {universities.map(u => <option key={u.id} value={u.id}>{u.name}</option>)}
-        </select>
+        <SearchableSelect id="university" placeholder="Type or choose university" value={form.university_id} options={universities} onChange={value => setField("university_id", value)} required />
 
-        <select className="input" value={form.faculty_id || ""} onChange={e => setField("faculty_id", e.target.value)} required>
-          <option value="">Faculty / School</option>
-          {faculties.map(f => <option key={f.id} value={f.id}>{f.code ? `${f.name} (${f.code})` : f.name}</option>)}
-        </select>
+        <SearchableSelect id="faculty" placeholder="Type or choose faculty / school" value={form.faculty_id || ""} options={faculties} onChange={value => setField("faculty_id", value)} required />
 
-        <select className="input" value={form.department_id || ""} onChange={e => setField("department_id", e.target.value)} required>
-          <option value="">Department</option>
-          {visibleDepartments.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
-        </select>
+        <SearchableSelect id="department" placeholder="Type or choose department" value={form.department_id || ""} options={visibleDepartments} onChange={value => setField("department_id", value)} required />
 
-        <select className="input" value={form.programme_id || ""} onChange={e => setField("programme_id", e.target.value)} required>
-          <option value="">Programme</option>
-          {programmes.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
-        </select>
+        <SearchableSelect id="programme" placeholder="Type or choose programme" value={form.programme_id || ""} options={programmes} onChange={value => setField("programme_id", value)} required />
 
         <div className="grid md:grid-cols-2 gap-4">
-          <select className="input" value={form.level} onChange={e => setField("level", e.target.value)} required>
-            <option value="">Level</option>
-            {(levels.length ? levels.map(item => item.level) : ["100", "200", "300", "400"]).map(level => (
-              <option key={level} value={level}>Level {level}</option>
-            ))}
-          </select>
+          <SuggestInput id="level" placeholder="Type or choose level" value={form.level} options={(levels.length ? levels.map(item => item.level) : ["100", "200", "300", "400"])} onChange={value => setField("level", value)} required />
 
-          <select className="input" value={form.session} onChange={e => setField("session", e.target.value)} required>
-            <option value="">Session</option>
-            {visibleSessions.map(session => <option key={session} value={session}>{session}</option>)}
-          </select>
+          <SuggestInput id="session" placeholder="Type or choose session" value={form.session} options={visibleSessions} onChange={value => setField("session", value)} required />
         </div>
 
-        <select className="input" value={form.course_id || ""} onChange={e => setField("course_id", e.target.value)}>
-          <option value="">Course / module, if applicable</option>
-          {courses.map(course => (
-            <option key={course.id} value={course.id}>{course.code ? `${course.code} - ${course.name}` : course.name}</option>
-          ))}
-        </select>
+        <SearchableSelect id="course" placeholder="Type or choose course / module, if applicable" value={form.course_id || ""} options={courses} onChange={value => setField("course_id", value)} />
 
         <div className="grid md:grid-cols-2 gap-4">
           <input className="input" placeholder="Student ID" value={form.student_id} onChange={e => setField("student_id", e.target.value)} required />
@@ -297,13 +328,7 @@ export default function VerifyStudent() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">
-          <select className="input" value={form.semester} onChange={e => setField("semester", e.target.value)}>
-            <option value="Semester 1">Semester 1</option>
-            <option value="Semester 2">Semester 2</option>
-            <option value="Trimester 1">Trimester 1</option>
-            <option value="Trimester 2">Trimester 2</option>
-            <option value="Trimester 3">Trimester 3</option>
-          </select>
+          <SuggestInput id="semester" placeholder="Type or choose semester" value={form.semester} options={semesterOptions} onChange={value => setField("semester", value)} />
           <input className="input" type="number" min="1950" max={currentYear} placeholder="Academic start year" value={form.academic_start_year} onChange={e => setField("academic_start_year", e.target.value)} required />
         </div>
 

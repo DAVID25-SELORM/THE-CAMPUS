@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import EmptyState from "../../components/EmptyState";
+import { SearchableSelect } from "../../components/SearchableSelect";
 import { useAuth } from "../../hooks/useAuth";
 import { supabase } from "../../services/supabase";
 import {
@@ -592,10 +593,14 @@ function BallotTab({ isAdmin, positions, positionTitle, setPositionTitle, submit
       )}
 
       <form onSubmit={submitCandidate} className="card grid md:grid-cols-3 gap-3">
-        <select className="input" value={candidateForm.position} onChange={e => setCandidateForm({ ...candidateForm, position: e.target.value })} required>
-          <option value="">Choose position</option>
-          {positions.map(position => <option key={position.id} value={position.title}>{position.title}</option>)}
-        </select>
+        <SearchableSelect
+          id="candidate-position"
+          placeholder="Type or choose position"
+          value={candidateForm.position}
+          options={positions.map(position => ({ value: position.title, label: position.title }))}
+          onChange={value => setCandidateForm({ ...candidateForm, position: value })}
+          required
+        />
         <input className="input" placeholder="Campaign slogan" value={candidateForm.campaign_slogan} onChange={e => setCandidateForm({ ...candidateForm, campaign_slogan: e.target.value })} />
         <input className="input" placeholder="Short manifesto" value={candidateForm.manifesto} onChange={e => setCandidateForm({ ...candidateForm, manifesto: e.target.value })} />
         <button className="btn md:col-span-3" disabled={positions.length === 0}>Register as Candidate</button>
@@ -739,10 +744,17 @@ function AdminTab({ turnout, campusProfiles, electionVoters, voterProfileId, set
       </div>
 
       <form onSubmit={submitElectionVoter} className="card grid md:grid-cols-[1fr_auto] gap-3">
-        <select className="input" value={voterProfileId} onChange={e => setVoterProfileId(e.target.value)} required>
-          <option value="">Add verified election voter</option>
-          {campusProfiles.map(row => <option key={row.id} value={row.id}>{row.full_name} / {row.student_id || "No ID"} / {row.verification_status}</option>)}
-        </select>
+        <SearchableSelect
+          id="election-voter"
+          placeholder="Type or choose verified election voter"
+          value={voterProfileId}
+          options={campusProfiles.map(row => ({
+            value: row.id,
+            label: `${row.full_name} / ${row.student_id || "No ID"} / ${row.verification_status}`
+          }))}
+          onChange={setVoterProfileId}
+          required
+        />
         <button className="btn">Add Voter</button>
       </form>
 

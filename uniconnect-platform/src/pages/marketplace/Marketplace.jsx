@@ -15,6 +15,7 @@ import {
   requestVendorVerification
 } from "../../services/economyService";
 import EmptyState from "../../components/EmptyState";
+import { SearchableSelect } from "../../components/SearchableSelect";
 import MarketplaceEconomyUpgrade from "./MarketplaceEconomyUpgrade";
 
 const deliveryOptions = ["meetup", "pickup", "delivery", "digital"];
@@ -176,10 +177,13 @@ export default function Marketplace() {
           <option value="service">Student service</option>
           <option value="digital">Digital delivery</option>
         </select>
-        <select className="input" value={form.category_id} onChange={e=>setForm({...form, category_id:e.target.value})}>
-          <option value="">No category</option>
-          {categories.map(category => <option key={category.id} value={category.id}>{category.name}</option>)}
-        </select>
+        <SearchableSelect
+          id="marketplace-category"
+          placeholder="Type or choose category"
+          value={form.category_id}
+          options={categories.map(category => ({ value: category.id, label: category.name }))}
+          onChange={value => setForm({ ...form, category_id: value })}
+        />
         <input className="input" placeholder="Contact phone" value={form.contact_phone} onChange={e=>setForm({...form, contact_phone:e.target.value})} />
         <select className="input" value={form.delivery_method} onChange={e=>setForm({...form, delivery_method:e.target.value})}>
           {deliveryOptions.map(option => <option key={option} value={option}>{option}</option>)}

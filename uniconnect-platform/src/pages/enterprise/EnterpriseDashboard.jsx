@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BarChart3, BadgeDollarSign, Building2, CreditCard, Fingerprint, KeyRound, Megaphone, Palette, PiggyBank, Smartphone, Target, Users } from "lucide-react";
+import { SearchableSelect } from "../../components/SearchableSelect";
 import { useAuth } from "../../hooks/useAuth";
 import {
   createAdCreative,
@@ -368,14 +369,21 @@ export default function EnterpriseDashboard() {
         <form onSubmit={handleAd} className="card">
           <Header icon={Target} title="Ad Engine" />
           <div className="grid gap-3 mt-4">
-            <select className="input" value={ad.campaign_id} onChange={e => setAd({ ...ad, campaign_id: e.target.value })} required>
-              <option value="">Choose campaign</option>
-              {campaigns.map(row => <option key={row.id} value={row.id}>{row.title}</option>)}
-            </select>
-            <select className="input" value={ad.placement_id} onChange={e => setAd({ ...ad, placement_id: e.target.value })}>
-              <option value="">Choose placement</option>
-              {adPlacements.map(row => <option key={row.id} value={row.id}>{row.name}</option>)}
-            </select>
+            <SearchableSelect
+              id="ad-campaign"
+              placeholder="Type or choose campaign"
+              value={ad.campaign_id}
+              options={campaigns.map(row => ({ value: row.id, label: row.title }))}
+              onChange={value => setAd({ ...ad, campaign_id: value })}
+              required
+            />
+            <SearchableSelect
+              id="ad-placement"
+              placeholder="Type or choose placement"
+              value={ad.placement_id}
+              options={adPlacements.map(row => ({ value: row.id, label: row.name }))}
+              onChange={value => setAd({ ...ad, placement_id: value })}
+            />
             <input className="input" placeholder="Ad title" value={ad.title} onChange={e => setAd({ ...ad, title: e.target.value })} required />
             <input className="input" placeholder="Target URL" value={ad.target_url} onChange={e => setAd({ ...ad, target_url: e.target.value })} />
             <textarea className="input min-h-24" placeholder="Ad body" value={ad.body} onChange={e => setAd({ ...ad, body: e.target.value })} />

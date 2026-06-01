@@ -34,6 +34,42 @@ function labelFor(field) {
     .replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
+function optionLabel(item) {
+  if (!item) return "";
+  if (item.code && item.name) return `${item.name} (${item.code})`;
+  return item.name || item.level || "";
+}
+
+function SearchableRelationField({ id, value, options, placeholder, onChange }) {
+  const selectedLabel = optionLabel(options.find(item => item.id === value));
+  const [draft, setDraft] = useState(selectedLabel);
+
+  useEffect(() => {
+    setDraft(selectedLabel);
+  }, [selectedLabel]);
+
+  function update(nextValue) {
+    setDraft(nextValue);
+    const match = options.find(item => optionLabel(item).toLowerCase() === nextValue.trim().toLowerCase());
+    onChange(match?.id || "");
+  }
+
+  return (
+    <>
+      <input
+        className="input"
+        list={`${id}-options`}
+        placeholder={placeholder}
+        value={draft}
+        onChange={e => update(e.target.value)}
+      />
+      <datalist id={`${id}-options`}>
+        {options.map(item => <option key={item.id} value={optionLabel(item)} />)}
+      </datalist>
+    </>
+  );
+}
+
 export default function AcademicSetup() {
   const { profile } = useAuth();
   const [active, setActive] = useState("faculties");
@@ -115,10 +151,14 @@ export default function AcademicSetup() {
     const options = selectOptions(field);
     if (field.endsWith("_id")) {
       return (
-        <select key={field} className="input" value={draft[field] || ""} onChange={e => updateDraft(section.key, field, e.target.value)}>
-          <option value="">{labelFor(field)}</option>
-          {options.map(item => <option key={item.id} value={item.id}>{item.code ? `${item.name} (${item.code})` : item.name}</option>)}
-        </select>
+        <SearchableRelationField
+          key={field}
+          id={`${section.key}-${field}`}
+          value={draft[field] || ""}
+          options={options}
+          placeholder={`Type or choose ${labelFor(field).toLowerCase()}`}
+          onChange={value => updateDraft(section.key, field, value)}
+        />
       );
     }
 

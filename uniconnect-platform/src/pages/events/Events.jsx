@@ -3,6 +3,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { createEvent, fetchEventCategories, fetchEvents } from "../../services/eventService";
 import { fetchEventEngagementSummary } from "../../services/eventEngagementService";
 import EmptyState from "../../components/EmptyState";
+import { SearchableSelect } from "../../components/SearchableSelect";
 import EventEngagementPanel from "./EventEngagementPanel";
 
 const eventTypes = [
@@ -130,16 +131,13 @@ export default function Events() {
           {eventTypes.map(type => <option key={type} value={type}>{type}</option>)}
         </select>
 
-        <select
-          className="input"
+        <SearchableSelect
+          id="event-category"
+          placeholder="Type or choose category"
           value={form.category_id}
-          onChange={e => setForm({ ...form, category_id: e.target.value })}
-        >
-          <option value="">No category</option>
-          {categories.map(category => (
-            <option key={category.id} value={category.id}>{category.name}</option>
-          ))}
-        </select>
+          options={categories.map(category => ({ value: category.id, label: category.name }))}
+          onChange={value => setForm({ ...form, category_id: value })}
+        />
 
         <input
           className="input"

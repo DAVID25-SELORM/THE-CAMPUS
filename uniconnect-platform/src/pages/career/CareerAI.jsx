@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Brain, Briefcase, Building2, FileText, FolderKanban, Sparkles, Trophy, Users } from "lucide-react";
 import EmptyState from "../../components/EmptyState";
+import { SearchableSelect } from "../../components/SearchableSelect";
 import { useAuth } from "../../hooks/useAuth";
 import {
   addProfileSkill,
@@ -376,10 +377,13 @@ export default function CareerAI() {
 
           {canRecruit && (
             <form onSubmit={handleInternship} className="grid gap-3 mt-4">
-              <select className="input" value={internship.company_id} onChange={e => setInternship({ ...internship, company_id: e.target.value })}>
-                <option value="">No company selected</option>
-                {companies.map(row => <option key={row.id} value={row.id}>{row.name}</option>)}
-              </select>
+              <SearchableSelect
+                id="internship-company"
+                placeholder="Type or choose company"
+                value={internship.company_id}
+                options={companies.map(row => ({ value: row.id, label: row.name }))}
+                onChange={value => setInternship({ ...internship, company_id: value })}
+              />
               <input className="input" placeholder="Opportunity title" value={internship.title} onChange={e => setInternship({ ...internship, title: e.target.value })} required />
               <input className="input" placeholder="Location" value={internship.location} onChange={e => setInternship({ ...internship, location: e.target.value })} />
               <select className="input" value={internship.employment_type} onChange={e => setInternship({ ...internship, employment_type: e.target.value })}>
@@ -452,10 +456,13 @@ export default function CareerAI() {
         <section className="card">
           <Header icon={Sparkles} title="Skills & AI Study Assistant" />
           <form onSubmit={handleSkill} className="grid md:grid-cols-[1fr_160px_auto] gap-3 mt-4">
-            <select className="input" value={skillForm.skill_id} onChange={e => setSkillForm({ ...skillForm, skill_id: e.target.value })}>
-              <option value="">Choose skill</option>
-              {skills.map(skill => <option key={skill.id} value={skill.id}>{skill.name}</option>)}
-            </select>
+            <SearchableSelect
+              id="profile-skill"
+              placeholder="Type or choose skill"
+              value={skillForm.skill_id}
+              options={skills.map(skill => ({ value: skill.id, label: skill.name }))}
+              onChange={value => setSkillForm({ ...skillForm, skill_id: value })}
+            />
             <select className="input" value={skillForm.proficiency} onChange={e => setSkillForm({ ...skillForm, proficiency: e.target.value })}>
               <option value="beginner">Beginner</option>
               <option value="intermediate">Intermediate</option>
@@ -469,10 +476,13 @@ export default function CareerAI() {
           </div>
 
           <form onSubmit={handleEndorsement} className="grid md:grid-cols-[1fr_1fr_auto] gap-3 mt-5">
-            <select className="input" value={endorsementForm.skill_id} onChange={e => setEndorsementForm({ ...endorsementForm, skill_id: e.target.value })}>
-              <option value="">Add skill evidence</option>
-              {skills.map(skill => <option key={skill.id} value={skill.id}>{skill.name}</option>)}
-            </select>
+            <SearchableSelect
+              id="endorsement-skill"
+              placeholder="Type or choose skill evidence"
+              value={endorsementForm.skill_id}
+              options={skills.map(skill => ({ value: skill.id, label: skill.name }))}
+              onChange={value => setEndorsementForm({ ...endorsementForm, skill_id: value })}
+            />
             <input className="input" placeholder="Evidence or endorser note" value={endorsementForm.note} onChange={e => setEndorsementForm({ ...endorsementForm, note: e.target.value })} />
             <button className="btn">Save</button>
           </form>
