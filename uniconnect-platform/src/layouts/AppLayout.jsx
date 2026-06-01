@@ -4,6 +4,7 @@ import { Bell, Home, Users, Store, CalendarDays, Vote, MessageCircle, User, Shie
 import { useAuth } from "../hooks/useAuth";
 import Logo from "../components/Logo";
 import { setOnlinePresence } from "../services/presenceService";
+import { getProfileVerificationStatus } from "../utils/profileStatus";
 
 const links = [
   ["Feed", "/feed", Home],
@@ -23,9 +24,7 @@ const links = [
 export default function AppLayout() {
   const { signOut, profile, user } = useAuth();
   const navigate = useNavigate();
-  const displayStatus = profile?.role === "super_admin"
-    ? "verified"
-    : profile?.verification_status || "pending";
+  const displayStatus = getProfileVerificationStatus(profile);
 
   useEffect(() => {
     if (!user?.id || !profile?.university_id) return;

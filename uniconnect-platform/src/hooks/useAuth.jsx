@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { supabase } from "../services/supabase";
+import { isSystemVerifiedRole, normalizeProfileVerification } from "../utils/profileStatus";
 
 const AuthContext = createContext(null);
 const refreshWindowSeconds = 60;
@@ -52,8 +53,18 @@ export function AuthProvider({ children }) {
       }
 
       if (error) console.error("Profile load error:", error.message);
-      setProfile(data || null);
-      return data || null;
+
+      const normalizedProfile = normalizeProfileVerification(data || null);
+      if (data && isSystemVerifiedRole(data.role) && data.verification_status !== "verified") {
+        const { error: statusError } = await supabase
+          .from("profiles")
+          .update({ verification_status: "verified" })
+          .eq("id", userId);
+        if (statusError) console.error("Profile status repair error:", statusError.message);
+      }
+
+      setProfile(normalizedProfile);
+      return normalizedProfile;
     } catch (error) {
       console.error("Profile load error:", error.message);
       setProfile(null);

@@ -33,6 +33,7 @@ import {
   updateElectionVoter,
   updatePetition
 } from "../../services/electionService";
+import { isProfileVerified } from "../../utils/profileStatus";
 
 const initialElection = {
   title: "",
@@ -80,7 +81,7 @@ export default function Elections() {
 
   const isAdmin = ["super_admin", "university_admin"].includes(profile?.role);
   const selectedElection = elections.find(election => election.id === selectedElectionId) || elections[0] || null;
-  const verifiedProfile = profile?.verification_status === "verified";
+  const verifiedProfile = isProfileVerified(profile);
   const myCandidate = candidates.find(candidate => candidate.profile_id === user?.id);
   const myRegistry = electionVoters.find(voter => voter.voter_id === user?.id);
   const registryIsRequired = electionVoters.length > 0;
@@ -214,7 +215,7 @@ export default function Elections() {
   }, [votes, user?.id]);
 
   const turnout = useMemo(() => {
-    const eligible = electionVoters.length || campusProfiles.filter(row => row.verification_status === "verified").length || 0;
+    const eligible = electionVoters.length || campusProfiles.filter(row => isProfileVerified(row)).length || 0;
     const uniqueVoters = new Set(votes.map(vote => vote.voter_id)).size;
     return {
       eligible,

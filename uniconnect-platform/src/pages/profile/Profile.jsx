@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { fetchProfileUniversities } from "../../services/profileService";
+import { getProfileVerificationStatus } from "../../utils/profileStatus";
 
 export default function Profile() {
   const { profile, user } = useAuth();
   const [enrollments, setEnrollments] = useState([]);
+  const verificationStatus = getProfileVerificationStatus(profile);
 
   useEffect(() => {
     if (user?.id) fetchProfileUniversities(user.id).then(({ data }) => setEnrollments(data || []));
@@ -26,7 +28,7 @@ export default function Profile() {
           <div><p className="muted text-sm">University</p><p className="font-bold">{profile?.universities?.name || "Not selected"}</p></div>
           <div><p className="muted text-sm">Department</p><p className="font-bold">{profile?.departments?.name || "Not selected"}</p></div>
           <div><p className="muted text-sm">Student ID</p><p className="font-bold">{profile?.student_id || "N/A"}</p></div>
-          <div><p className="muted text-sm">Status</p><p className="font-bold">{profile?.verification_status || "pending"}</p></div>
+          <div><p className="muted text-sm">Status</p><p className="font-bold">{verificationStatus}</p></div>
           <div><p className="muted text-sm">Current Level</p><p className="font-bold">{profile?.level || "N/A"}</p></div>
           <div><p className="muted text-sm">Academic Status</p><p className="font-bold">{profile?.academic_status || "student"}</p></div>
           <div><p className="muted text-sm">Start Year</p><p className="font-bold">{profile?.academic_start_year || "N/A"}</p></div>
