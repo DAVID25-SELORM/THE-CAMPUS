@@ -35,24 +35,33 @@ export async function getFaculties(universityId) {
   return supabase.from("faculties").select("*").eq("university_id", universityId).order("name");
 }
 
-export async function getProgrammes(universityId, departmentId) {
+export async function getProgrammes(universityId, filters = {}) {
+  const queryFilters = typeof filters === "string" ? { department_id: filters } : filters;
   let query = supabase.from("academic_programmes").select("*").eq("university_id", universityId);
-  if (departmentId) query = query.eq("department_id", departmentId);
+  if (queryFilters.faculty_id) query = query.eq("faculty_id", queryFilters.faculty_id);
+  if (queryFilters.department_id) query = query.eq("department_id", queryFilters.department_id);
   return query.order("name");
 }
 
 export async function getCourses(universityId, filters = {}) {
   const runQuery = (queryFilters) => {
     let query = supabase.from("courses").select("*").eq("university_id", universityId);
+    if (queryFilters.faculty_id) query = query.eq("faculty_id", queryFilters.faculty_id);
     if (queryFilters.department_id) query = query.eq("department_id", queryFilters.department_id);
     if (queryFilters.programme_id) query = query.eq("programme_id", queryFilters.programme_id);
     if (queryFilters.level) query = query.eq("level", String(queryFilters.level));
+    if (queryFilters.session) query = query.contains("sessions", [queryFilters.session]);
     return query.order("name");
   };
 
   const exactResult = await runQuery(filters);
-  if (exactResult.error || exactResult.data?.length || (!filters.programme_id && !filters.level)) {
+  if (exactResult.error || exactResult.data?.length || (!filters.programme_id && !filters.level && !filters.session)) {
     return exactResult;
+  }
+
+  if (filters.session) {
+    const sessionFallbackResult = await runQuery({ ...filters, session: "" });
+    if (sessionFallbackResult.error || sessionFallbackResult.data?.length) return sessionFallbackResult;
   }
 
   if (filters.programme_id && filters.level) {
@@ -60,13 +69,18 @@ export async function getCourses(universityId, filters = {}) {
     if (programmeResult.error || programmeResult.data?.length) return programmeResult;
   }
 
+  if (filters.programme_id && filters.level && filters.session) {
+    const programmeSessionResult = await runQuery({ ...filters, level: "", session: "" });
+    if (programmeSessionResult.error || programmeSessionResult.data?.length) return programmeSessionResult;
+  }
+
   if (filters.department_id && filters.programme_id) {
-    const departmentLevelResult = await runQuery({ ...filters, programme_id: "" });
+    const departmentLevelResult = await runQuery({ ...filters, programme_id: "", session: "" });
     if (departmentLevelResult.error || departmentLevelResult.data?.length) return departmentLevelResult;
   }
 
   if (filters.department_id) {
-    return runQuery({ department_id: filters.department_id });
+    return runQuery({ faculty_id: filters.faculty_id, department_id: filters.department_id });
   }
 
   return exactResult;

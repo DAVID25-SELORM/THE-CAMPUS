@@ -252,17 +252,22 @@ export default function VerifyStudent() {
 
   useEffect(() => {
     if (!form.university_id) return;
-    getProgrammes(form.university_id, form.department_id).then(({ data }) => setProgrammes(data || []));
-  }, [form.university_id, form.department_id]);
+    getProgrammes(form.university_id, {
+      faculty_id: form.faculty_id,
+      department_id: form.department_id
+    }).then(({ data }) => setProgrammes(data || []));
+  }, [form.university_id, form.faculty_id, form.department_id]);
 
   useEffect(() => {
     if (!form.university_id) return;
     getCourses(form.university_id, {
+      faculty_id: form.faculty_id,
       department_id: form.department_id,
       programme_id: form.programme_id,
+      session: form.session,
       level: form.level
     }).then(({ data }) => setCourses(data || []));
-  }, [form.university_id, form.department_id, form.programme_id, form.level]);
+  }, [form.university_id, form.faculty_id, form.department_id, form.programme_id, form.session, form.level]);
 
   useEffect(() => {
     if (user?.id) fetchProfileUniversities(user.id).then(({ data }) => setEnrollments(data || []));
@@ -286,7 +291,7 @@ export default function VerifyStudent() {
         next.programme_id = "";
         next.course_id = "";
       }
-      if (key === "programme_id" || key === "level") {
+      if (key === "programme_id" || key === "session" || key === "level") {
         next.course_id = "";
       }
       return next;
@@ -413,9 +418,9 @@ export default function VerifyStudent() {
         <SearchableSelect id="programme" placeholder="Type or choose programme" value={form.programme_id || ""} options={programmes} onChange={value => setField("programme_id", value)} required />
 
         <div className="grid md:grid-cols-2 gap-4">
-          <SuggestInput id="level" placeholder="Type or choose level" value={form.level} options={(levels.length ? levels.map(item => item.level) : ["100", "200", "300", "400"])} onChange={value => setField("level", value)} required />
-
           <SuggestInput id="session" placeholder="Type or choose session" value={form.session} options={visibleSessions} onChange={value => setField("session", value)} required />
+
+          <SuggestInput id="level" placeholder="Type or choose level" value={form.level} options={(levels.length ? levels.map(item => item.level) : ["100", "200", "300", "400"])} onChange={value => setField("level", value)} required />
         </div>
 
         <SearchableSelect id="course" placeholder="Type or choose course / module, if applicable" value={form.course_id || ""} options={courses} onChange={value => setField("course_id", value)} />
