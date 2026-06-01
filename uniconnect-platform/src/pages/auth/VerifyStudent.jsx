@@ -18,6 +18,30 @@ const currentAcademicYear = `${currentYear}/${currentYear + 1}`;
 const sessionFallbacks = ["Regular", "Weekend", "Evening", "Distance"];
 const semesterOptions = ["Semester 1", "Semester 2", "Trimester 1", "Trimester 2", "Trimester 3"];
 
+function defaultForm(profile, user) {
+  return {
+    full_name: profile?.full_name || user?.user_metadata?.full_name || "",
+    university_id: profile?.university_id || "",
+    faculty_id: profile?.faculty_id || "",
+    department_id: profile?.department_id || "",
+    programme_id: profile?.programme_id || "",
+    course_id: profile?.course_id || "",
+    level: profile?.level || "100",
+    session: profile?.session || "",
+    student_id: profile?.student_id || "",
+    academic_year: profile?.academic_year || currentAcademicYear,
+    semester: profile?.semester || "Semester 1",
+    academic_start_year: profile?.academic_start_year || currentYear,
+    starting_level: profile?.starting_level || 100,
+    program_duration_years: profile?.program_duration_years || 4,
+    relationship_type: "student"
+  };
+}
+
+function draftStorageKey(userId) {
+  return `uniconnect:verification-draft:${userId}`;
+}
+
 function optionLabel(item) {
   if (!item) return "";
   if (item.code && item.name) return `${item.name} (${item.code})`;
@@ -83,25 +107,11 @@ export default function VerifyStudent() {
   const [levels, setLevels] = useState([]);
   const [sessions, setSessions] = useState([]);
   const [enrollments, setEnrollments] = useState([]);
-  const [form, setForm] = useState({
-    full_name: profile?.full_name || "",
-    university_id: profile?.university_id || "",
-    faculty_id: profile?.faculty_id || "",
-    department_id: profile?.department_id || "",
-    programme_id: profile?.programme_id || "",
-    course_id: profile?.course_id || "",
-    level: profile?.level || "100",
-    session: profile?.session || "",
-    student_id: profile?.student_id || "",
-    academic_year: profile?.academic_year || currentAcademicYear,
-    semester: profile?.semester || "Semester 1",
-    academic_start_year: profile?.academic_start_year || currentYear,
-    starting_level: profile?.starting_level || 100,
-    program_duration_years: profile?.program_duration_years || 4,
-    relationship_type: "student"
-  });
+  const [form, setForm] = useState(() => defaultForm(profile, user));
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
+  const [draftReady, setDraftReady] = useState(false);
+  const [hasSavedDraft, setHasSavedDraft] = useState(false);
 
   const selectedFaculty = useMemo(
     () => faculties.find(item => item.id === form.faculty_id),
@@ -117,25 +127,43 @@ export default function VerifyStudent() {
   }, []);
 
   useEffect(() => {
-    if (!profile) return;
-    setForm(prev => ({
-      ...prev,
-      full_name: profile.full_name || "",
-      university_id: profile.university_id || "",
-      faculty_id: profile.faculty_id || "",
-      department_id: profile.department_id || "",
-      programme_id: profile.programme_id || "",
-      course_id: profile.course_id || "",
-      level: profile.level || "100",
-      session: profile.session || "",
-      student_id: profile.student_id || "",
-      academic_year: profile.academic_year || currentAcademicYear,
-      semester: profile.semester || "Semester 1",
-      academic_start_year: profile.academic_start_year || currentYear,
-      starting_level: profile.starting_level || 100,
-      program_duration_years: profile.program_duration_years || 4
-    }));
-  }, [profile?.id]);
+    if (!user?.id) return;
+
+    const savedDraft = window.localStorage.getItem(draftStorageKey(user.id));
+    if (savedDraft) {
+      try {
+        setForm(prev => ({ ...prev, ...JSON.parse(savedDraft) }));
+        setHasSavedDraft(true);
+      } catch {
+        window.localStorage.removeItem(draftStorageKey(user.id));
+        setHasSavedDraft(false);
+      } finally {
+        setDraftReady(true);
+      }
+      return;
+    }
+
+    setHasSavedDraft(false);
+    setForm(defaultForm(profile, user));
+    setDraftReady(true);
+  }, [user?.id]);
+
+  useEffect(() => {
+    if (!profile || !user?.id || !draftReady) return;
+    if (hasSavedDraft) {
+      setForm(prev => ({
+        ...prev,
+        full_name: prev.full_name || profile.full_name || user.user_metadata?.full_name || ""
+      }));
+      return;
+    }
+    setForm(defaultForm(profile, user));
+  }, [profile?.id, draftReady, hasSavedDraft, user?.id]);
+
+  useEffect(() => {
+    if (!user?.id || !draftReady) return;
+    window.localStorage.setItem(draftStorageKey(user.id), JSON.stringify(form));
+  }, [form, draftReady, user?.id]);
 
   useEffect(() => {
     if (!form.university_id) return;
@@ -283,6 +311,7 @@ export default function VerifyStudent() {
       await refreshProfile();
       const { data } = await fetchProfileUniversities(user.id);
       setEnrollments(data || []);
+      window.localStorage.removeItem(draftStorageKey(user.id));
       setMessage("Profile submitted. Your academic structure is now linked to your verification request.");
     } catch (error) {
       setMessage(error?.message || "Could not submit verification.");
