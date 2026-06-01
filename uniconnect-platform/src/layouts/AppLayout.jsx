@@ -23,6 +23,9 @@ const links = [
 export default function AppLayout() {
   const { signOut, profile, user } = useAuth();
   const navigate = useNavigate();
+  const displayStatus = profile?.role === "super_admin"
+    ? "verified"
+    : profile?.verification_status || "pending";
 
   useEffect(() => {
     if (!user?.id || !profile?.university_id) return;
@@ -55,7 +58,7 @@ export default function AppLayout() {
       <aside className="hidden lg:flex flex-col gap-6 p-5 border-r border-white/10 bg-black/20">
         <Logo />
         <div className="card">
-          <div className="badge">{profile?.verification_status || "pending"}</div>
+          <div className="badge">{displayStatus}</div>
           <h3 className="font-black mt-3">{profile?.full_name || "Student"}</h3>
           <p className="muted text-sm">{profile?.universities?.short_name || profile?.universities?.name || "Verify your school"}</p>
         </div>

@@ -348,7 +348,7 @@ export default function VerifyStudent() {
         academic_start_year: Number(form.academic_start_year),
         starting_level: Number(form.starting_level || form.level),
         program_duration_years: Number(form.program_duration_years),
-        verification_status: "pending"
+        verification_status: profile?.role === "super_admin" ? "verified" : "pending"
       };
 
       const { error } = await updateStudentProfile(user.id, payload);
