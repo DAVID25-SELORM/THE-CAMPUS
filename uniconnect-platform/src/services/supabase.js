@@ -47,6 +47,7 @@ function createSupabaseStub() {
   return {
     auth: {
       getSession: () => Promise.resolve({ data: { session: null }, error: null }),
+      refreshSession: () => Promise.resolve({ data: { session: null }, error: configError }),
       onAuthStateChange: () => ({
         data: { subscription: { unsubscribe: () => {} } }
       }),
@@ -65,5 +66,11 @@ if (!isSupabaseConfigured) {
 }
 
 export const supabase = isSupabaseConfigured
-  ? createClient(supabaseUrl, supabaseAnonKey)
+  ? createClient(supabaseUrl, supabaseAnonKey, {
+      auth: {
+        autoRefreshToken: true,
+        persistSession: true,
+        detectSessionInUrl: true
+      }
+    })
   : createSupabaseStub();
