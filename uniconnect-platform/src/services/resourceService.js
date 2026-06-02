@@ -1,15 +1,7 @@
 import { supabase } from "./supabase";
+import { uploadResourceFile as uploadFile } from "./storageService";
 
-const BUCKET = "resources";
-
-export async function uploadResourceFile(userId, file) {
-  const ext = file.name.split(".").pop().toLowerCase();
-  const path = `${userId}/${Date.now()}.${ext}`;
-  const { error } = await supabase.storage.from(BUCKET).upload(path, file, { upsert: false });
-  if (error) return { url: null, error };
-  const { data } = supabase.storage.from(BUCKET).getPublicUrl(path);
-  return { url: data.publicUrl, error: null };
-}
+export { uploadFile as uploadResourceFile };
 
 export async function fetchResources(universityId, filters = {}) {
   let query = supabase

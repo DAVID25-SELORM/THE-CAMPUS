@@ -4,7 +4,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { useToast } from "../../hooks/useToast";
 import { createNews, deleteNews, fetchNews, markNewsRead, NEWS_CATEGORIES, subscribeToNews, updateNews } from "../../services/newsService";
 import { supabase } from "../../services/supabase";
-import { uploadAvatar } from "../../services/storageService";
+import { uploadNewsCover } from "../../services/storageService";
 import EmptyState from "../../components/EmptyState";
 
 export default function CampusNews() {
@@ -41,7 +41,7 @@ export default function CampusNews() {
     setBusy(true);
     let cover_url = null;
     if (coverFile) {
-      const { url } = await uploadAvatar(user.id, coverFile);
+      const { url } = await uploadNewsCover(user.id, coverFile);
       cover_url = url;
     }
     const { error } = await createNews({

@@ -5,7 +5,7 @@ import { useToast } from "../../hooks/useToast";
 import EmptyState from "../../components/EmptyState";
 import { addComment, createPost, fetchPosts, subscribeToNewPosts } from "../../services/postService";
 import { fetchReactions, REACTIONS, removeReaction, setReaction, summariseReactions } from "../../services/reactionService";
-import { uploadAvatar } from "../../services/storageService";
+import { uploadFeedImage } from "../../services/storageService";
 import { supabase } from "../../services/supabase";
 
 function ReactionBar({ post, userId, onReact }) {
@@ -120,7 +120,7 @@ export default function Feed() {
 
     let media_url = null;
     if (imageFile) {
-      const { url, error: uploadError } = await uploadAvatar(user.id + "/feed", imageFile);
+      const { url, error: uploadError } = await uploadFeedImage(user.id, imageFile);
       if (uploadError) { toast(uploadError.message, "error"); setBusy(false); return; }
       media_url = url;
     }
