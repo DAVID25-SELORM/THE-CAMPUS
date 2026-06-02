@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import {
   fetchProfileUniversities,
@@ -49,25 +49,27 @@ function optionLabel(item) {
   return item.name || item.level || "";
 }
 
-function SearchableSelect({ id, placeholder, value, options, onChange, required = false }) {
+// ── Searchable drop-down for DB-backed options (id/name objects) ──────────────
+function SearchableSelect({ placeholder, value, options, onChange, required = false }) {
   const selectedLabel = optionLabel(options.find(item => item.id === value));
   const [draft, setDraft] = useState(selectedLabel);
   const [open, setOpen] = useState(false);
 
-  const activeFilter = draft.trim().toLowerCase() === selectedLabel.toLowerCase()
-    ? ""
-    : draft.trim().toLowerCase();
+  const activeFilter =
+    draft.trim().toLowerCase() === selectedLabel.toLowerCase()
+      ? ""
+      : draft.trim().toLowerCase();
   const filteredOptions = options
     .filter(item => optionLabel(item).toLowerCase().includes(activeFilter))
     .slice(0, 8);
 
-  useEffect(() => {
-    setDraft(selectedLabel);
-  }, [selectedLabel]);
+  useEffect(() => { setDraft(selectedLabel); }, [selectedLabel]);
 
   function update(nextValue) {
     setDraft(nextValue);
-    const match = options.find(item => optionLabel(item).toLowerCase() === nextValue.trim().toLowerCase());
+    const match = options.find(
+      item => optionLabel(item).toLowerCase() === nextValue.trim().toLowerCase()
+    );
     onChange(match?.id || "");
   }
 
@@ -83,10 +85,7 @@ function SearchableSelect({ id, placeholder, value, options, onChange, required 
         className="input"
         placeholder={placeholder}
         value={draft}
-        onChange={e => {
-          setOpen(true);
-          update(e.target.value);
-        }}
+        onChange={e => { setOpen(true); update(e.target.value); }}
         onFocus={() => setOpen(true)}
         onBlur={() => window.setTimeout(() => setOpen(false), 120)}
         required={required}
@@ -103,7 +102,7 @@ function SearchableSelect({ id, placeholder, value, options, onChange, required 
               key={item.id}
               type="button"
               className="block w-full px-4 py-3 text-left hover:bg-cyan-300/15"
-              onMouseDown={event => event.preventDefault()}
+              onMouseDown={e => e.preventDefault()}
               onClick={() => selectOption(item)}
             >
               {optionLabel(item)}
@@ -115,30 +114,24 @@ function SearchableSelect({ id, placeholder, value, options, onChange, required 
   );
 }
 
-function SuggestInput({ id, placeholder, value, options, onChange, required = false }) {
+// ── Suggest input for plain string options ─────────────────────────────────────
+function SuggestInput({ placeholder, value, options, onChange, required = false }) {
   const [open, setOpen] = useState(false);
-  const activeFilter = options.some(option => option.toLowerCase() === String(value).trim().toLowerCase())
+  const strVal = String(value ?? "");
+  const activeFilter = options.some(o => o.toLowerCase() === strVal.trim().toLowerCase())
     ? ""
-    : String(value).trim().toLowerCase();
+    : strVal.trim().toLowerCase();
   const filteredOptions = options
-    .filter(option => option.toLowerCase().includes(activeFilter))
+    .filter(o => o.toLowerCase().includes(activeFilter))
     .slice(0, 8);
-
-  function selectOption(option) {
-    setOpen(false);
-    onChange(option);
-  }
 
   return (
     <div className="relative">
       <input
         className="input"
         placeholder={placeholder}
-        value={value}
-        onChange={e => {
-          setOpen(true);
-          onChange(e.target.value);
-        }}
+        value={strVal}
+        onChange={e => { setOpen(true); onChange(e.target.value); }}
         onFocus={() => setOpen(true)}
         onBlur={() => window.setTimeout(() => setOpen(false), 120)}
         required={required}
@@ -155,8 +148,8 @@ function SuggestInput({ id, placeholder, value, options, onChange, required = fa
               key={option}
               type="button"
               className="block w-full px-4 py-3 text-left hover:bg-cyan-300/15"
-              onMouseDown={event => event.preventDefault()}
-              onClick={() => selectOption(option)}
+              onMouseDown={e => e.preventDefault()}
+              onClick={() => { setOpen(false); onChange(option); }}
             >
               {option}
             </button>
@@ -167,21 +160,28 @@ function SuggestInput({ id, placeholder, value, options, onChange, required = fa
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
 export default function VerifyStudent() {
   const { user, profile, refreshProfile } = useAuth();
+
   const [universities, setUniversities] = useState([]);
-  const [faculties, setFaculties] = useState([]);
-  const [departments, setDepartments] = useState([]);
-  const [programmes, setProgrammes] = useState([]);
-  const [courses, setCourses] = useState([]);
-  const [levels, setLevels] = useState([]);
-  const [sessions, setSessions] = useState([]);
-  const [enrollments, setEnrollments] = useState([]);
-  const [form, setForm] = useState(() => defaultForm(profile, user));
-  const [message, setMessage] = useState("");
-  const [busy, setBusy] = useState(false);
-  const [draftReady, setDraftReady] = useState(false);
-  const [hasSavedDraft, setHasSavedDraft] = useState(false);
+  const [faculties,    setFaculties]    = useState([]);
+  const [departments,  setDepartments]  = useState([]);
+  const [programmes,   setProgrammes]   = useState([]);
+  const [courses,      setCourses]      = useState([]);
+  const [levels,       setLevels]       = useState([]);
+  const [sessions,     setSessions]     = useState([]);
+  const [enrollments,  setEnrollments]  = useState([]);
+
+  const [form,       setForm]      = useState(() => defaultForm(null, null));
+  const [message,    setMessage]   = useState("");
+  const [busy,       setBusy]      = useState(false);
+  const [formReady,  setFormReady] = useState(false);
+
+  // Tracks whether the one-time form initialisation has run.
+  // Reset to false after a successful submit so the form re-initialises
+  // from the freshly-saved profile.
+  const initDoneRef = useRef(false);
 
   const selectedFaculty = useMemo(
     () => faculties.find(item => item.id === form.faculty_id),
@@ -192,62 +192,65 @@ export default function VerifyStudent() {
     [courses, form.course_id]
   );
 
+  // ── Load university list once ─────────────────────────────────────────────
   useEffect(() => {
     getUniversities().then(({ data }) => setUniversities(data || []));
   }, []);
 
+  // ── One-time form initialisation ─────────────────────────────────────────
+  // Waits for BOTH user AND profile before deciding which values to show.
+  // Checks draft first so a user's in-progress choices are never overwritten
+  // by a profile reload or by the two values arriving in the same render batch.
   useEffect(() => {
-    if (!user?.id) return;
+    if (!user?.id || !profile || initDoneRef.current) return;
+    initDoneRef.current = true;
 
-    const savedDraft = window.localStorage.getItem(draftStorageKey(user.id));
-    if (savedDraft) {
+    const rawDraft = window.localStorage.getItem(draftStorageKey(user.id));
+    if (rawDraft) {
       try {
-        setForm(prev => ({ ...prev, ...JSON.parse(savedDraft) }));
-        setHasSavedDraft(true);
+        const draftData = JSON.parse(rawDraft);
+        setForm({
+          // Start from profile defaults so any field not in the draft is correct
+          ...defaultForm(profile, user),
+          // Draft values win — this preserves the user's level, session, etc.
+          ...draftData,
+          // Always pull full_name from the most authoritative source
+          full_name: draftData.full_name
+            || profile.full_name
+            || user.user_metadata?.full_name
+            || ""
+        });
       } catch {
+        // Corrupted draft — discard and start from profile
         window.localStorage.removeItem(draftStorageKey(user.id));
-        setHasSavedDraft(false);
-      } finally {
-        setDraftReady(true);
+        setForm(defaultForm(profile, user));
       }
-      return;
+    } else {
+      setForm(defaultForm(profile, user));
     }
 
-    setHasSavedDraft(false);
-    setForm(defaultForm(profile, user));
-    setDraftReady(true);
-  }, [user?.id]);
+    setFormReady(true);
+  }, [user?.id, profile?.id]);
 
+  // ── Persist draft to localStorage whenever the form changes ───────────────
   useEffect(() => {
-    if (!profile || !user?.id || !draftReady) return;
-    if (hasSavedDraft) {
-      setForm(prev => ({
-        ...prev,
-        full_name: prev.full_name || profile.full_name || user.user_metadata?.full_name || ""
-      }));
-      return;
-    }
-    setForm(defaultForm(profile, user));
-  }, [profile?.id, draftReady, hasSavedDraft, user?.id]);
-
-  useEffect(() => {
-    if (!user?.id || !draftReady) return;
+    if (!user?.id || !formReady) return;
     window.localStorage.setItem(draftStorageKey(user.id), JSON.stringify(form));
-  }, [form, draftReady, user?.id]);
+  }, [form, formReady, user?.id]);
 
+  // ── Cascade: reload faculties/depts/levels/sessions when university changes ─
   useEffect(() => {
     if (!form.university_id) return;
-
     Promise.all([
       getFaculties(form.university_id),
       getDepartments(form.university_id),
       getAcademicLevels(form.university_id),
       getAcademicSessions(form.university_id)
-    ]).then(([facultyResult, departmentResult, levelResult, sessionResult]) => {
-      setFaculties(facultyResult.data || []);
-      setDepartments(departmentResult.data || []);
-      setLevels(levelResult.data || []);
-      setSessions(sessionResult.data || []);
+    ]).then(([f, d, l, s]) => {
+      setFaculties(f.data   || []);
+      setDepartments(d.data || []);
+      setLevels(l.data      || []);
+      setSessions(s.data    || []);
     });
   }, [form.university_id]);
 
@@ -270,10 +273,14 @@ export default function VerifyStudent() {
     }).then(({ data }) => setCourses(data || []));
   }, [form.university_id, form.faculty_id, form.department_id, form.programme_id, form.session, form.level]);
 
+  // ── Enrollments ───────────────────────────────────────────────────────────
   useEffect(() => {
-    if (user?.id) fetchProfileUniversities(user.id).then(({ data }) => setEnrollments(data || []));
+    if (user?.id) {
+      fetchProfileUniversities(user.id).then(({ data }) => setEnrollments(data || []));
+    }
   }, [user?.id, profile?.university_id]);
 
+  // ── Field change handler with cascade clears ──────────────────────────────
   function setField(key, value) {
     setForm(prev => {
       const next = { ...prev, [key]: value };
@@ -300,7 +307,10 @@ export default function VerifyStudent() {
   }
 
   function formatSupabaseError(error) {
-    return [error?.message, error?.details, error?.hint].filter(Boolean).join(" ") || "Could not save your verification details.";
+    return (
+      [error?.message, error?.details, error?.hint].filter(Boolean).join(" ") ||
+      "Could not save your verification details."
+    );
   }
 
   async function submit(e) {
@@ -313,8 +323,17 @@ export default function VerifyStudent() {
       return;
     }
 
-    if (!form.university_id || !form.faculty_id || !form.department_id || !form.programme_id || !form.session || !form.student_id.trim()) {
-      setMessage("Complete university, faculty, department, programme, session, and student ID before submitting.");
+    if (
+      !form.university_id ||
+      !form.faculty_id ||
+      !form.department_id ||
+      !form.programme_id ||
+      !form.session ||
+      !form.student_id.trim()
+    ) {
+      setMessage(
+        "Complete university, faculty, department, programme, session, and student ID before submitting."
+      );
       return;
     }
 
@@ -324,7 +343,7 @@ export default function VerifyStudent() {
     }
 
     const facultyCode = selectedFaculty?.code || "";
-    const courseCode = selectedCourse?.code || "";
+    const courseCode  = selectedCourse?.code  || "";
     const profileForm = { ...form };
     delete profileForm.relationship_type;
 
@@ -333,63 +352,58 @@ export default function VerifyStudent() {
     try {
       const payload = {
         ...profileForm,
-        full_name: form.full_name.trim(),
-        university_id: form.university_id,
-        faculty_id: form.faculty_id || null,
-        faculty_code: facultyCode || null,
-        department_id: form.department_id || null,
-        programme_id: form.programme_id || null,
-        course_id: form.course_id || null,
-        course_code: courseCode || null,
-        level: String(form.level),
-        session: form.session.trim(),
-        student_id: form.student_id.trim(),
-        academic_year: form.academic_year.trim(),
-        semester: form.semester,
-        academic_start_year: Number(form.academic_start_year),
-        starting_level: Number(form.starting_level || form.level),
+        full_name:            form.full_name.trim(),
+        faculty_code:         facultyCode || null,
+        course_code:          courseCode  || null,
+        level:                String(form.level),
+        session:              form.session.trim(),
+        student_id:           form.student_id.trim(),
+        academic_year:        form.academic_year.trim(),
+        semester:             form.semester,
+        academic_start_year:  Number(form.academic_start_year),
+        starting_level:       Number(form.starting_level || form.level),
         program_duration_years: Number(form.program_duration_years),
-        verification_status: getSubmitVerificationStatus(profile)
+        verification_status:  getSubmitVerificationStatus(profile)
       };
 
       const { error } = await updateStudentProfile(user.id, payload);
-      if (error) {
-        setMessage(formatSupabaseError(error));
-        return;
-      }
+      if (error) { setMessage(formatSupabaseError(error)); return; }
 
       const { error: enrollmentError } = await upsertProfileUniversity({
-        user_id: user.id,
-        university_id: form.university_id,
-        faculty_id: form.faculty_id || null,
-        faculty_code: facultyCode || null,
-        department_id: form.department_id || null,
-        programme_id: form.programme_id || null,
-        course_id: form.course_id || null,
-        course_code: courseCode || null,
-        level: String(form.level),
-        session: form.session.trim(),
-        student_id: form.student_id.trim(),
-        academic_year: form.academic_year.trim(),
-        semester: form.semester,
-        academic_start_year: Number(form.academic_start_year),
-        starting_level: Number(form.starting_level || form.level),
+        user_id:              user.id,
+        university_id:        form.university_id,
+        faculty_id:           form.faculty_id    || null,
+        faculty_code:         facultyCode        || null,
+        department_id:        form.department_id || null,
+        programme_id:         form.programme_id  || null,
+        course_id:            form.course_id     || null,
+        course_code:          courseCode         || null,
+        level:                String(form.level),
+        session:              form.session.trim(),
+        student_id:           form.student_id.trim(),
+        academic_year:        form.academic_year.trim(),
+        semester:             form.semester,
+        academic_start_year:  Number(form.academic_start_year),
+        starting_level:       Number(form.starting_level || form.level),
         program_duration_years: Number(form.program_duration_years),
-        relationship_type: form.relationship_type,
-        is_primary: true
+        relationship_type:    form.relationship_type,
+        is_primary:           true
       });
-      if (enrollmentError) {
-        setMessage(formatSupabaseError(enrollmentError));
-        return;
-      }
+      if (enrollmentError) { setMessage(formatSupabaseError(enrollmentError)); return; }
+
+      // Clear draft — form correctly shows the just-submitted values.
+      // On next mount (navigate away + back) the form re-initialises from the fresh profile.
+      window.localStorage.removeItem(draftStorageKey(user.id));
 
       await refreshProfile();
+
       const { data } = await fetchProfileUniversities(user.id);
       setEnrollments(data || []);
-      window.localStorage.removeItem(draftStorageKey(user.id));
-      setMessage("Profile submitted. Your academic structure is now linked to your verification request.");
-    } catch (error) {
-      setMessage(error?.message || "Could not submit verification.");
+      setMessage(
+        "Profile submitted. Your academic structure is now linked to your verification request."
+      );
+    } catch (err) {
+      setMessage(err?.message || "Could not submit verification.");
     } finally {
       setBusy(false);
     }
@@ -398,51 +412,141 @@ export default function VerifyStudent() {
   const visibleDepartments = form.faculty_id
     ? departments.filter(item => item.faculty_id === form.faculty_id)
     : departments;
-  const visibleSessions = sessions.length ? sessions.map(item => item.name) : sessionFallbacks;
+  const visibleSessions = sessions.length
+    ? sessions.map(item => item.name)
+    : sessionFallbacks;
 
   return (
     <div>
       <h1 className="text-3xl font-black">Account Verification</h1>
-      <p className="muted mt-2">Link your account to the academic structure used by your university.</p>
+      <p className="muted mt-2">
+        Link your account to the academic structure used by your university.
+      </p>
 
       {message && <div className="card mt-5">{message}</div>}
 
       <form onSubmit={submit} className="card mt-6 grid gap-4 max-w-3xl">
-        <input className="input" placeholder="Full name" value={form.full_name} onChange={e => setField("full_name", e.target.value)} required />
+        <input
+          className="input"
+          placeholder="Full name"
+          value={form.full_name}
+          onChange={e => setField("full_name", e.target.value)}
+          required
+        />
 
-        <SearchableSelect id="university" placeholder="Type or choose university" value={form.university_id} options={universities} onChange={value => setField("university_id", value)} required />
+        <SearchableSelect
+          placeholder="Type or choose university"
+          value={form.university_id}
+          options={universities}
+          onChange={value => setField("university_id", value)}
+          required
+        />
 
-        <SearchableSelect id="faculty" placeholder="Type or choose faculty / school" value={form.faculty_id || ""} options={faculties} onChange={value => setField("faculty_id", value)} required />
+        <SearchableSelect
+          placeholder="Type or choose faculty / school"
+          value={form.faculty_id || ""}
+          options={faculties}
+          onChange={value => setField("faculty_id", value)}
+          required
+        />
 
-        <SearchableSelect id="department" placeholder="Type or choose department" value={form.department_id || ""} options={visibleDepartments} onChange={value => setField("department_id", value)} required />
+        <SearchableSelect
+          placeholder="Type or choose department"
+          value={form.department_id || ""}
+          options={visibleDepartments}
+          onChange={value => setField("department_id", value)}
+          required
+        />
 
-        <SearchableSelect id="programme" placeholder="Type or choose programme" value={form.programme_id || ""} options={programmes} onChange={value => setField("programme_id", value)} required />
+        <SearchableSelect
+          placeholder="Type or choose programme"
+          value={form.programme_id || ""}
+          options={programmes}
+          onChange={value => setField("programme_id", value)}
+          required
+        />
 
         <div className="grid md:grid-cols-2 gap-4">
-          <SuggestInput id="session" placeholder="Type or choose session" value={form.session} options={visibleSessions} onChange={value => setField("session", value)} required />
-
-          <SuggestInput id="level" placeholder="Type or choose level" value={form.level} options={(levels.length ? levels.map(item => item.level) : ["100", "200", "300", "400"])} onChange={value => setField("level", value)} required />
+          <SuggestInput
+            placeholder="Type or choose session"
+            value={form.session}
+            options={visibleSessions}
+            onChange={value => setField("session", value)}
+            required
+          />
+          <SuggestInput
+            placeholder="Type or choose level"
+            value={form.level}
+            options={levels.length ? levels.map(item => item.level) : ["100", "200", "300", "400"]}
+            onChange={value => setField("level", value)}
+            required
+          />
         </div>
 
-        <SearchableSelect id="course" placeholder="Type or choose course / module, if applicable" value={form.course_id || ""} options={courses} onChange={value => setField("course_id", value)} />
+        <SearchableSelect
+          placeholder="Type or choose course / module, if applicable"
+          value={form.course_id || ""}
+          options={courses}
+          onChange={value => setField("course_id", value)}
+        />
 
         <div className="grid md:grid-cols-2 gap-4">
-          <input className="input" placeholder="Student ID" value={form.student_id} onChange={e => setField("student_id", e.target.value)} required />
-          <input className="input" placeholder="Academic Year" value={form.academic_year} onChange={e => setField("academic_year", e.target.value)} required />
+          <input
+            className="input"
+            placeholder="Student ID"
+            value={form.student_id}
+            onChange={e => setField("student_id", e.target.value)}
+            required
+          />
+          <input
+            className="input"
+            placeholder="Academic Year (e.g. 2024/2025)"
+            value={form.academic_year}
+            onChange={e => setField("academic_year", e.target.value)}
+            required
+          />
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">
-          <SuggestInput id="semester" placeholder="Type or choose semester" value={form.semester} options={semesterOptions} onChange={value => setField("semester", value)} />
-          <input className="input" type="number" min="1950" max={currentYear} placeholder="Academic start year" value={form.academic_start_year} onChange={e => setField("academic_start_year", e.target.value)} required />
+          <SuggestInput
+            placeholder="Type or choose semester"
+            value={form.semester}
+            options={semesterOptions}
+            onChange={value => setField("semester", value)}
+          />
+          <input
+            className="input"
+            type="number"
+            min="1950"
+            max={currentYear}
+            placeholder="Academic start year"
+            value={form.academic_start_year}
+            onChange={e => setField("academic_start_year", e.target.value)}
+            required
+          />
         </div>
 
-        <input className="input" type="number" min="1" max="10" placeholder="Programme duration in years" value={form.program_duration_years} onChange={e => setField("program_duration_years", e.target.value)} required />
-        <button className="btn" disabled={busy}>{busy ? "Submitting..." : "Submit Verification"}</button>
+        <input
+          className="input"
+          type="number"
+          min="1"
+          max="10"
+          placeholder="Programme duration in years"
+          value={form.program_duration_years}
+          onChange={e => setField("program_duration_years", e.target.value)}
+          required
+        />
+
+        <button className="btn" disabled={busy}>
+          {busy ? "Submitting..." : "Submit Verification"}
+        </button>
       </form>
 
       <div className="card mt-6 max-w-3xl">
         <h2 className="text-xl font-black">Schools & Programmes</h2>
-        <p className="muted mt-2">You can keep more than one school, programme, or course linked to the same account.</p>
+        <p className="muted mt-2">
+          You can keep more than one school, programme, or course linked to the same account.
+        </p>
         <div className="grid gap-3 mt-4">
           {enrollments.length === 0 && <p className="muted">No linked schools yet.</p>}
           {enrollments.map(item => (
@@ -454,7 +558,10 @@ export default function VerifyStudent() {
                 {item.academic_programmes?.name ? ` / ${item.academic_programmes.name}` : ""}
               </p>
               <p className="muted text-xs mt-2">
-                Level {item.level || "N/A"} / {item.session || "session N/A"} / {item.academic_year || "academic year N/A"} / {item.is_primary ? "primary" : "secondary"}
+                Level {item.level || "N/A"} /{" "}
+                {item.session || "session N/A"} /{" "}
+                {item.academic_year || "academic year N/A"} /{" "}
+                {item.is_primary ? "primary" : "secondary"}
               </p>
             </div>
           ))}

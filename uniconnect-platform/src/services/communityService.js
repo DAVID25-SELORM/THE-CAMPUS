@@ -11,3 +11,12 @@ export async function createCommunity(payload) {
 export async function joinCommunity(community_id, user_id) {
   return supabase.from("community_members").upsert({ community_id, user_id, role: "member" }, { onConflict: "community_id,user_id" });
 }
+
+export async function leaveCommunity(community_id, user_id) {
+  return supabase.from("community_members").delete().eq("community_id", community_id).eq("user_id", user_id);
+}
+
+export async function fetchUserCommunities(userId) {
+  if (!userId) return { data: [], error: null };
+  return supabase.from("community_members").select("community_id").eq("user_id", userId);
+}

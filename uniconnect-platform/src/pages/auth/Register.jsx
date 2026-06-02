@@ -5,59 +5,60 @@ import Logo from "../../components/Logo";
 import { updateStudentProfile } from "../../services/profileService";
 
 const blockedEmailDomains = new Set([
-  "example.com",
-  "example.org",
-  "example.net",
-  "test.com",
-  "mailinator.com",
-  "tempmail.com",
-  "10minutemail.com",
-  "guerrillamail.com",
-  "yopmail.com",
-  "fakeinbox.com"
+  "example.com", "example.org", "example.net",
+  "test.com", "mailinator.com", "tempmail.com",
+  "10minutemail.com", "guerrillamail.com", "yopmail.com", "fakeinbox.com"
 ]);
 
-function emailError(email) {
+function getEmailError(email) {
   const trimmed = email.trim().toLowerCase();
   const domain = trimmed.split("@")[1] || "";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) return "Enter a valid email address.";
+  if (blockedEmailDomains.has(domain)) return "Use your real email. Temporary domains are not accepted.";
+  return "";
+}
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
-    return "Use a valid email address.";
-  }
-
-  if (blockedEmailDomains.has(domain)) {
-    return "Use your real email address. Temporary or fake email domains are not accepted.";
-  }
-
+function getPasswordError(password) {
+  if (!password) return "Password is required.";
+  if (password.length < 6) return "Password must be at least 6 characters.";
   return "";
 }
 
 export default function Register() {
   const [form, setForm] = useState({ fullName: "", email: "", password: "" });
+  const [fieldErrors, setFieldErrors] = useState({ fullName: "", email: "", password: "" });
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   function setField(key, value) {
     setForm(prev => ({ ...prev, [key]: value }));
+    setFieldErrors(prev => ({ ...prev, [key]: "" }));
+  }
+
+  function validate() {
+    const errors = {
+      fullName: form.fullName.trim() ? "" : "Full name is required.",
+      email: getEmailError(form.email),
+      password: getPasswordError(form.password)
+    };
+    setFieldErrors(errors);
+    return !Object.values(errors).some(Boolean);
   }
 
   async function submit(e) {
     e.preventDefault();
-    const validationError = emailError(form.email);
-    if (validationError) {
-      setMessage(validationError);
-      return;
-    }
+    if (!validate()) return;
 
     setBusy(true);
     setMessage("");
+
     const { data, error } = await supabase.auth.signUp({
       email: form.email.trim().toLowerCase(),
       password: form.password,
       options: {
         data: { full_name: form.fullName.trim() },
-        emailRedirectTo: `${window.location.origin}/login`
+        emailRedirectTo: `${window.location.origin}/verify`
       }
     });
 
@@ -84,7 +85,7 @@ export default function Register() {
     }
 
     setBusy(false);
-    setMessage("Account created. Open the confirmation link sent to your real email, then login to continue verification.");
+    setMessage("Account created! Open the confirmation link sent to your email, then log in to continue verification.");
   }
 
   return (
@@ -105,13 +106,50 @@ export default function Register() {
         {message && <div className="mt-4 card">{message}</div>}
 
         <div className="grid gap-4 mt-6">
-          <input className="input" placeholder="Full name" value={form.fullName} onChange={e => setField("fullName", e.target.value)} required />
-          <input className="input" type="email" placeholder="Real email address" value={form.email} onChange={e => setField("email", e.target.value)} required />
-          <input className="input" type="password" placeholder="Password" value={form.password} onChange={e => setField("password", e.target.value)} required minLength={6} />
-          <button className="btn" disabled={busy || !isSupabaseConfigured}>{busy ? "Creating..." : "Create Account"}</button>
+          <div>
+            <input
+              className={`input ${fieldErrors.fullName ? "border-red-400/60" : ""}`}
+              placeholder="Full name"
+              value={form.fullName}
+              onChange={e => setField("fullName", e.target.value)}
+              required
+            />
+            {fieldErrors.fullName && <p className="text-red-300 text-xs mt-1 px-1">{fieldErrors.fullName}</p>}
+          </div>
+
+          <div>
+            <input
+              className={`input ${fieldErrors.email ? "border-red-400/60" : ""}`}
+              type="email"
+              placeholder="Real email address"
+              value={form.email}
+              onChange={e => setField("email", e.target.value)}
+              required
+            />
+            {fieldErrors.email && <p className="text-red-300 text-xs mt-1 px-1">{fieldErrors.email}</p>}
+          </div>
+
+          <div>
+            <input
+              className={`input ${fieldErrors.password ? "border-red-400/60" : ""}`}
+              type="password"
+              placeholder="Password (min 6 characters)"
+              value={form.password}
+              onChange={e => setField("password", e.target.value)}
+              required
+              minLength={6}
+            />
+            {fieldErrors.password && <p className="text-red-300 text-xs mt-1 px-1">{fieldErrors.password}</p>}
+          </div>
+
+          <button className="btn" disabled={busy || !isSupabaseConfigured}>
+            {busy ? "Creating..." : "Create Account"}
+          </button>
         </div>
 
-        <p className="muted mt-5 text-sm">Already registered? <Link className="text-cyan-200 font-bold" to="/login">Login</Link></p>
+        <p className="muted mt-5 text-sm">
+          Already registered? <Link className="text-cyan-200 font-bold" to="/login">Login</Link>
+        </p>
       </form>
     </div>
   );

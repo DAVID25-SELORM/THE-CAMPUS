@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { BadgeCheck, MessageCircle, ShoppingBag, Star } from "lucide-react";
 import { useAuth } from "../../hooks/useAuth";
+import { useToast } from "../../hooks/useToast";
 import {
   createMarketplaceItem,
   fetchMarketplaceCategories,
@@ -22,6 +23,7 @@ const deliveryOptions = ["meetup", "pickup", "delivery", "digital"];
 
 export default function Marketplace() {
   const { user, profile } = useAuth();
+  const toast = useToast();
   const [items, setItems] = useState([]);
   const [categories, setCategories] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -86,7 +88,7 @@ export default function Marketplace() {
       university_id: profile.university_id,
       seller_id: user.id
     });
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     setForm({ title: "", description: "", price: "", item_type: "product", category_id: "", contact_phone: "", delivery_method: "meetup" });
     load();
   }

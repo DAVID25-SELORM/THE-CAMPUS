@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Image, Phone, Plus, Search, Send, Users, Video } from "lucide-react";
 import { useAuth } from "../../hooks/useAuth";
+import { useToast } from "../../hooks/useToast";
 import EmptyState from "../../components/EmptyState";
 import CallPanel from "./CallPanel";
 import {
@@ -38,6 +39,7 @@ function isMediaImage(url) {
 
 export default function Messages() {
   const { user, profile } = useAuth();
+  const toast = useToast();
   const [conversations, setConversations] = useState([]);
   const [students, setStudents] = useState([]);
   const [presence, setPresence] = useState([]);
@@ -152,7 +154,7 @@ export default function Messages() {
     });
     setBusy(false);
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     await loadConversations();
     setShowNew(false);
     setSelected(data);
@@ -168,7 +170,7 @@ export default function Messages() {
     });
     setBusy(false);
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     await loadConversations();
     setShowNew(false);
     setGroupTitle("");
@@ -194,7 +196,7 @@ export default function Messages() {
     });
 
     await setTyping({ conversation_id: selectedConversation.id, user_id: user.id, university_id: profile.university_id, is_typing: false });
-    if (error) alert(error.message);
+    if (error) toast(error.message, "error");
   }
 
   async function startCall(callType) {
@@ -205,7 +207,7 @@ export default function Messages() {
       started_by: user.id,
       call_type: callType
     });
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     setCallRole("caller");
     setActiveCall(data);
   }

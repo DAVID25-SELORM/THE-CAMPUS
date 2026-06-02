@@ -27,3 +27,15 @@ export async function toggleLike({ post_id, user_id }) {
   if (existing.data?.id) return supabase.from("likes").delete().eq("id", existing.data.id);
   return supabase.from("likes").insert({ post_id, user_id });
 }
+
+export function subscribeToNewPosts(universityId, onInsert) {
+  return supabase
+    .channel(`feed:${universityId}`)
+    .on("postgres_changes", {
+      event: "INSERT",
+      schema: "public",
+      table: "posts",
+      filter: `university_id=eq.${universityId}`
+    }, onInsert)
+    .subscribe();
+}

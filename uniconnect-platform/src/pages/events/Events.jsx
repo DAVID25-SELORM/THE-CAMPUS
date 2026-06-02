@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import { useToast } from "../../hooks/useToast";
 import { createEvent, fetchEventCategories, fetchEvents } from "../../services/eventService";
 import { fetchEventEngagementSummary } from "../../services/eventEngagementService";
 import EmptyState from "../../components/EmptyState";
@@ -20,6 +21,7 @@ const eventTypes = [
 
 export default function Events() {
   const { user, profile } = useAuth();
+  const toast = useToast();
   const [events, setEvents] = useState([]);
   const [categories, setCategories] = useState([]);
   const [engagement, setEngagement] = useState({});
@@ -59,7 +61,7 @@ export default function Events() {
       created_by: user.id
     });
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
 
     setForm({ title: "", description: "", location: "", event_date: "", event_type: "General", category_id: "" });
     load();

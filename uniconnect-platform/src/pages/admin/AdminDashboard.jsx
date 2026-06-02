@@ -41,10 +41,12 @@ export default function AdminDashboard() {
 
   async function loadPendingProfiles() {
     if (!isAdmin || (!profile?.university_id && profile?.role !== "super_admin")) return;
+    // Only fetch non-admin roles — super_admin and university_admin are auto-verified.
     let query = supabase
       .from("profiles")
       .select("id, full_name, student_id, level, session, academic_year, verification_status, role, universities(name, short_name), faculties(name, code), departments(name), academic_programmes(name), courses(name, code)")
       .eq("verification_status", "pending")
+      .not("role", "in", '("super_admin","university_admin")')
       .order("created_at", { ascending: false });
 
     if (profile.role !== "super_admin") {
@@ -151,6 +153,13 @@ export default function AdminDashboard() {
         <p className="muted mt-2">Edit faculties, departments, programmes, courses, course codes, levels, sessions, and campuses.</p>
         <Link className="btn inline-flex mt-4" to="/admin/academic-setup">Open Academic Setup</Link>
       </div>
+
+      {profile?.role === "super_admin" && (
+        <div className="card mt-6 border-cyan-300/20">
+          <h2 className="text-xl font-black">Admin Bootstrap</h2>
+          <p className="muted mt-2">Need to grant another account admin access? Direct them to <code className="px-1.5 py-0.5 rounded bg-white/10 text-cyan-200 text-sm">/admin-bootstrap</code> with the setup code.</p>
+        </div>
+      )}
     </div>
   );
 }

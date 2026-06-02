@@ -1,4 +1,5 @@
-const SYSTEM_VERIFIED_ROLES = new Set(["super_admin"]);
+// Roles that are always considered verified by the system, regardless of verification_status in DB.
+const SYSTEM_VERIFIED_ROLES = new Set(["super_admin", "university_admin"]);
 
 export function isSystemVerifiedRole(role) {
   return SYSTEM_VERIFIED_ROLES.has(role);

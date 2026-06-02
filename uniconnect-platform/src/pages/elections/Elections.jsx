@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import EmptyState from "../../components/EmptyState";
 import { SearchableSelect } from "../../components/SearchableSelect";
 import { useAuth } from "../../hooks/useAuth";
+import { useToast } from "../../hooks/useToast";
 import { supabase } from "../../services/supabase";
 import {
   addElectionVoter,
@@ -54,6 +55,7 @@ const tabs = ["Ballot", "Manifestos", "Debates", "Polls", "Admin"];
 
 export default function Elections() {
   const { user, profile } = useAuth();
+  const toast = useToast();
   const [activeTab, setActiveTab] = useState("Ballot");
   const [elections, setElections] = useState([]);
   const [selectedElectionId, setSelectedElectionId] = useState(null);
@@ -90,7 +92,7 @@ export default function Elections() {
   async function loadElections() {
     if (!profile?.university_id) return;
     const { data, error } = await fetchElections(profile.university_id);
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
 
     const nextElections = data || [];
     setElections(nextElections);
@@ -134,7 +136,7 @@ export default function Elections() {
     const error = positionError || candidateError || voteError || petitionError || debateError || pollError || voterError;
     if (error) {
       setLoading(false);
-      return alert(error.message);
+      return toast(error.message, "error");
     }
 
     const nextCandidates = candidateRows || [];
@@ -243,7 +245,7 @@ export default function Elections() {
       created_by: user.id
     });
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
 
     setElectionForm(initialElection);
     await loadElections();
@@ -260,7 +262,7 @@ export default function Elections() {
       max_votes: 1
     });
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     setPositionTitle("");
     loadElectionDetails(selectedElection.id);
   }
@@ -275,14 +277,14 @@ export default function Elections() {
       profile_id: user.id
     });
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     setCandidateForm({ ...initialCandidate, position: positions[0]?.title || "" });
     loadElectionDetails(selectedElection.id);
   }
 
   async function submitVote(candidate) {
     if (!selectedElection?.id) return;
-    if (!voterIsCleared) return alert("Your profile must be verified and cleared for this election before voting.");
+    if (!voterIsCleared) return toast("Your profile must be verified and cleared for this election before voting.", "error");
 
     const { error } = await castVote({
       election_id: selectedElection.id,
@@ -291,7 +293,7 @@ export default function Elections() {
       position: candidate.position
     });
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     loadElectionDetails(selectedElection.id);
   }
 
@@ -305,14 +307,14 @@ export default function Elections() {
       petitioner_id: user.id
     });
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     setPetitionForm({ title: "", details: "" });
     loadElectionDetails(selectedElection.id);
   }
 
   async function submitManifesto(e) {
     e.preventDefault();
-    if (!myCandidate?.id) return alert("Register as a candidate before adding a manifesto.");
+    if (!myCandidate?.id) return toast("Register as a candidate before adding a manifesto.", "error");
 
     const { error } = await createManifesto({
       candidate_id: myCandidate.id,
@@ -320,7 +322,7 @@ export default function Elections() {
       content: manifestoForm.content
     });
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     setManifestoForm({ title: "", content: "" });
     loadElectionDetails(selectedElection.id);
   }
@@ -336,7 +338,7 @@ export default function Elections() {
       created_by: user.id
     });
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     setDebateForm({ title: "", description: "", debate_date: "", meeting_link: "" });
     loadElectionDetails(selectedElection.id);
   }
@@ -346,7 +348,7 @@ export default function Elections() {
     if (!selectedElection?.id || !profile?.university_id) return;
 
     const optionLabels = pollForm.options.split(",").map(option => option.trim()).filter(Boolean);
-    if (optionLabels.length < 2) return alert("Add at least two poll options.");
+    if (optionLabels.length < 2) return toast("Add at least two poll options separated by commas.", "error");
 
     const { data, error } = await createPoll({
       question: pollForm.question,
@@ -357,7 +359,7 @@ export default function Elections() {
       status: "open"
     });
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
 
     await Promise.all(optionLabels.map(label => createPollOption({ poll_id: data.id, label })));
     setPollForm({ question: "", options: "Yes, No", closes_at: "" });
@@ -371,7 +373,7 @@ export default function Elections() {
       voter_id: user.id
     });
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     loadElectionDetails(selectedElection.id);
   }
 
@@ -386,27 +388,27 @@ export default function Elections() {
       has_voted: false
     });
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     setVoterProfileId("");
     loadElectionDetails(selectedElection.id);
   }
 
   async function toggleVoter(voter) {
     const { error } = await updateElectionVoter(voter.id, { verified: !voter.verified });
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     loadElectionDetails(selectedElection.id);
   }
 
   async function setPetitionStatus(petition, status) {
     const { error } = await updatePetition(petition.id, { status });
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     loadElectionDetails(selectedElection.id);
   }
 
   async function changeStatus(status) {
     if (!selectedElection?.id) return;
     const { error } = await updateElection(selectedElection.id, { status });
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     loadElections();
   }
 

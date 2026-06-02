@@ -25,3 +25,12 @@ export async function markAllNotificationsRead(userId) {
     .eq("recipient_id", userId)
     .is("read_at", null);
 }
+
+export async function fetchUnreadCount(userId) {
+  if (!userId) return { count: 0, error: null };
+  return supabase
+    .from("notifications")
+    .select("id", { count: "exact", head: true })
+    .eq("recipient_id", userId)
+    .is("read_at", null);
+}

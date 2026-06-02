@@ -1,9 +1,12 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "../services/supabase";
 import { isSystemVerifiedRole, normalizeProfileVerification } from "../utils/profileStatus";
 
 const AuthContext = createContext(null);
 const refreshWindowSeconds = 60;
+
+const PROFILE_SELECT =
+  "*, universities(name, short_name), faculties(name, code), departments(name), academic_programmes(name), courses(name, code)";
 
 function sessionNeedsRefresh(session) {
   if (!session?.expires_at) return false;
@@ -11,14 +14,16 @@ function sessionNeedsRefresh(session) {
 }
 
 function isExpiredJwtError(error) {
-  const message = error?.message || "";
-  return message.toLowerCase().includes("jwt expired");
+  const msg = error?.message || "";
+  return msg.toLowerCase().includes("jwt expired");
 }
 
 export function AuthProvider({ children }) {
   const [session, setSession] = useState(null);
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  // Track whether bootstrap has completed so realtime handler knows when to act.
+  const bootstrapped = useRef(false);
 
   async function refreshActiveSession() {
     const { data, error } = await supabase.auth.refreshSession();
@@ -28,7 +33,6 @@ export function AuthProvider({ children }) {
       setProfile(null);
       return null;
     }
-
     setSession(data.session);
     return data.session;
   }
@@ -40,38 +44,77 @@ export function AuthProvider({ children }) {
     }
 
     try {
-      const { data, error } = await supabase
+      let { data, error } = await supabase
         .from("profiles")
-        .select("*, universities(name, short_name), faculties(name, code), departments(name), academic_programmes(name), courses(name, code)")
+        .select(PROFILE_SELECT)
         .eq("id", userId)
         .maybeSingle();
 
+      // Handle expired JWT by refreshing once.
       if (error && retryExpiredJwt && isExpiredJwtError(error)) {
-        const refreshedSession = await refreshActiveSession();
-        if (refreshedSession?.user?.id) return loadProfile(refreshedSession.user.id, false);
+        const refreshed = await refreshActiveSession();
+        if (refreshed?.user?.id) return loadProfile(refreshed.user.id, false);
         return null;
       }
 
-      if (error) console.error("Profile load error:", error.message);
-
-      const normalizedProfile = normalizeProfileVerification(data || null);
-      if (data && isSystemVerifiedRole(data.role) && data.verification_status !== "verified") {
-        const { error: statusError } = await supabase
-          .from("profiles")
-          .update({ verification_status: "verified" })
-          .eq("id", userId);
-        if (statusError) console.error("Profile status repair error:", statusError.message);
+      if (error) {
+        console.error("Profile load error:", error.message);
+        setProfile(null);
+        return null;
       }
 
-      setProfile(normalizedProfile);
-      return normalizedProfile;
-    } catch (error) {
-      console.error("Profile load error:", error.message);
+      // ── Auto-create profile row if it doesn't exist ──────────────────────────
+      // This handles users who confirmed their email after signup (Register skips
+      // profile creation when email confirmation is required) and setups where
+      // the Supabase trigger wasn't applied.
+      if (!data) {
+        const { data: authData } = await supabase.auth.getUser();
+        const fullName = authData?.user?.user_metadata?.full_name || "";
+
+        const { data: created, error: createError } = await supabase
+          .from("profiles")
+          .upsert({ id: userId, full_name: fullName, verification_status: "pending" }, { onConflict: "id" })
+          .select(PROFILE_SELECT)
+          .single();
+
+        if (createError) {
+          console.warn("Profile auto-create failed:", createError.message);
+        } else {
+          data = created;
+        }
+      }
+
+      // ── Auto-repair verification_status for system roles ────────────────────
+      // If a super_admin or university_admin still has verification_status≠"verified"
+      // in the DB, fix it now. Store the corrected state immediately so the UI
+      // never shows "pending" for admin accounts.
+      if (data && isSystemVerifiedRole(data.role) && data.verification_status !== "verified") {
+        const { data: repaired, error: repairError } = await supabase
+          .from("profiles")
+          .update({ verification_status: "verified" })
+          .eq("id", userId)
+          .select(PROFILE_SELECT)
+          .single();
+
+        if (repairError) {
+          console.error("Profile status repair error:", repairError.message);
+        } else if (repaired) {
+          // Use the freshly-fetched repaired row so local state is in sync with DB.
+          data = repaired;
+        }
+      }
+
+      const normalized = normalizeProfileVerification(data || null);
+      setProfile(normalized);
+      return normalized;
+    } catch (err) {
+      console.error("Profile load error:", err.message);
       setProfile(null);
       return null;
     }
   }
 
+  // ── Initial bootstrap ────────────────────────────────────────────────────────
   useEffect(() => {
     let active = true;
 
@@ -88,20 +131,25 @@ export function AuthProvider({ children }) {
         setSession(nextSession);
         await loadProfile(nextSession?.user?.id);
       } finally {
-        if (active) setLoading(false);
+        if (active) {
+          bootstrapped.current = true;
+          setLoading(false);
+        }
       }
     }
 
     bootstrap();
 
+    // Listen for auth events (sign-in, sign-out, token refresh).
+    // We deliberately do NOT call setLoading(false) here because bootstrap
+    // is the single source of truth for the initial loading state.
     const { data: listener } = supabase.auth.onAuthStateChange((_event, nextSession) => {
       setSession(nextSession);
-      setLoading(false);
       window.setTimeout(() => {
         if (!active) return;
         if (sessionNeedsRefresh(nextSession)) {
-          refreshActiveSession().then(refreshedSession => {
-            if (active) loadProfile(refreshedSession?.user?.id);
+          refreshActiveSession().then(refreshed => {
+            if (active) loadProfile(refreshed?.user?.id);
           });
           return;
         }
@@ -114,6 +162,25 @@ export function AuthProvider({ children }) {
       listener.subscription.unsubscribe();
     };
   }, []);
+
+  // ── Realtime: watch the signed-in user's own profile row ────────────────────
+  // When an admin approves this user, the DB row changes and the UI updates
+  // automatically without the user needing to refresh.
+  useEffect(() => {
+    const userId = session?.user?.id;
+    if (!userId) return;
+
+    const channel = supabase
+      .channel(`profile-watch:${userId}`)
+      .on(
+        "postgres_changes",
+        { event: "UPDATE", schema: "public", table: "profiles", filter: `id=eq.${userId}` },
+        () => { loadProfile(userId); }
+      )
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
+  }, [session?.user?.id]);
 
   const value = useMemo(() => ({
     session,

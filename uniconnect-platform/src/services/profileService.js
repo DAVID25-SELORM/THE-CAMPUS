@@ -94,25 +94,19 @@ export async function getAcademicSessions(universityId) {
   return supabase.from("academic_sessions").select("*").eq("university_id", universityId).order("name");
 }
 
+const PROFILE_SELECT = "*, universities(name, short_name), faculties(name, code), departments(name), academic_programmes(name), courses(name, code)";
+
 export async function updateStudentProfile(userId, payload) {
   if (!userId) {
     return { data: null, error: { message: "Sign in before updating your profile." } };
   }
 
+  // Use a single upsert — works whether the row exists (trigger-created) or not.
   const profilePayload = normalizePayload({ id: userId, ...payload }, profileUuidFields);
-  const updateResult = await supabase
-    .from("profiles")
-    .update(profilePayload)
-    .eq("id", userId)
-    .select()
-    .maybeSingle();
-
-  if (updateResult.error || updateResult.data) return updateResult;
-
   return supabase
     .from("profiles")
-    .insert(profilePayload)
-    .select()
+    .upsert(profilePayload, { onConflict: "id" })
+    .select(PROFILE_SELECT)
     .single();
 }
 

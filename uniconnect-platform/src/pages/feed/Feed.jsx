@@ -1,25 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MessageCircle, Send, ThumbsUp } from "lucide-react";
 import { useAuth } from "../../hooks/useAuth";
+import { useToast } from "../../hooks/useToast";
 import EmptyState from "../../components/EmptyState";
-import { addComment, createPost, fetchPosts, toggleLike } from "../../services/postService";
+import { addComment, createPost, fetchPosts, subscribeToNewPosts, toggleLike } from "../../services/postService";
+import { supabase } from "../../services/supabase";
 
 export default function Feed() {
   const { user, profile } = useAuth();
+  const toast = useToast();
   const [content, setContent] = useState("");
   const [commentDrafts, setCommentDrafts] = useState({});
   const [posts, setPosts] = useState([]);
   const [busy, setBusy] = useState(false);
   const [commentingId, setCommentingId] = useState("");
+  const channelRef = useRef(null);
 
   async function load() {
     if (!profile?.university_id) return;
     const { data, error } = await fetchPosts(profile.university_id);
-    if (error) console.error(error.message);
+    if (error) {
+      toast(error.message, "error");
+      return;
+    }
     setPosts(data || []);
   }
 
-  useEffect(() => { load(); }, [profile?.university_id]);
+  useEffect(() => {
+    load();
+  }, [profile?.university_id]);
+
+  useEffect(() => {
+    if (!profile?.university_id) return;
+
+    channelRef.current = subscribeToNewPosts(profile.university_id, () => load());
+
+    return () => {
+      if (channelRef.current) supabase.removeChannel(channelRef.current);
+    };
+  }, [profile?.university_id]);
 
   async function submit(e) {
     e.preventDefault();
@@ -31,7 +50,7 @@ export default function Feed() {
       content
     });
     setBusy(false);
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     setContent("");
     load();
   }
@@ -49,7 +68,7 @@ export default function Feed() {
     });
     setCommentingId("");
 
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
     setCommentDrafts(prev => ({ ...prev, [postId]: "" }));
     load();
   }
@@ -69,7 +88,7 @@ export default function Feed() {
       </div>
 
       <form onSubmit={submit} className="card mt-6">
-        <textarea className="input min-h-[110px]" placeholder="Share something with your campus..." value={content} onChange={e=>setContent(e.target.value)} />
+        <textarea className="input min-h-[110px]" placeholder="Share something with your campus..." value={content} onChange={e => setContent(e.target.value)} />
         <div className="flex justify-end mt-3">
           <button className="btn" disabled={busy}>{busy ? "Posting..." : "Post"}</button>
         </div>
@@ -80,9 +99,13 @@ export default function Feed() {
         {posts.map(post => (
           <article key={post.id} className="card">
             <div className="flex items-center gap-3">
-              <div className="h-11 w-11 rounded-2xl bg-white/10 grid place-items-center font-black">
-                {post.profiles?.full_name?.[0] || "U"}
-              </div>
+              {post.profiles?.avatar_url ? (
+                <img src={post.profiles.avatar_url} alt={post.profiles.full_name} className="h-11 w-11 rounded-2xl object-cover" />
+              ) : (
+                <div className="h-11 w-11 rounded-2xl bg-white/10 grid place-items-center font-black">
+                  {post.profiles?.full_name?.[0] || "U"}
+                </div>
+              )}
               <div>
                 <h3 className="font-black">{post.profiles?.full_name || "Student"}</h3>
                 <p className="muted text-xs">{new Date(post.created_at).toLocaleString()}</p>
@@ -90,8 +113,11 @@ export default function Feed() {
             </div>
             <p className="mt-4 whitespace-pre-wrap">{post.content}</p>
             <div className="flex gap-3 mt-5">
-              <button onClick={() => toggleLike({ post_id: post.id, user_id: user.id }).then(load)} className="btn btn-secondary flex gap-2 items-center">
-                <ThumbsUp size={16} /> {post.likes?.some(like => like.user_id === user.id) ? "Liked" : "Like"} ({post.likes?.length || 0})
+              <button
+                onClick={() => toggleLike({ post_id: post.id, user_id: user.id }).then(load)}
+                className={`btn btn-secondary flex gap-2 items-center ${post.likes?.some(l => l.user_id === user.id) ? "border-cyan-300/50 text-cyan-200" : ""}`}
+              >
+                <ThumbsUp size={16} /> {post.likes?.some(l => l.user_id === user.id) ? "Liked" : "Like"} ({post.likes?.length || 0})
               </button>
               <span className="btn btn-secondary flex gap-2 items-center cursor-default">
                 <MessageCircle size={16} /> {post.comments?.length || 0}

@@ -1,11 +1,14 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./hooks/useAuth.jsx";
+import { ToastProvider } from "./hooks/useToast.jsx";
 import Logo from "./components/Logo.jsx";
 import AppLayout from "./layouts/AppLayout.jsx";
 import Login from "./pages/auth/Login.jsx";
 import Register from "./pages/auth/Register.jsx";
 import VerifyStudent from "./pages/auth/VerifyStudent.jsx";
+import ForgotPassword from "./pages/auth/ForgotPassword.jsx";
+import ResetPassword from "./pages/auth/ResetPassword.jsx";
 import Dashboard from "./pages/dashboard/Dashboard.jsx";
 import Feed from "./pages/feed/Feed.jsx";
 import Communities from "./pages/communities/Communities.jsx";
@@ -19,6 +22,7 @@ import Notifications from "./pages/notifications/Notifications.jsx";
 import Profile from "./pages/profile/Profile.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 import AcademicSetup from "./pages/admin/AcademicSetup.jsx";
+import AdminBootstrap from "./pages/admin/AdminBootstrap.jsx";
 
 function PrivateRoute({ children }) {
   const { session, loading } = useAuth();
@@ -35,11 +39,20 @@ function PrivateRoute({ children }) {
   return session ? children : <Navigate to="/login" replace />;
 }
 
+function AdminRoute({ children }) {
+  const { profile, loading } = useAuth();
+  if (loading) return null;
+  const isAdmin = ["super_admin", "university_admin"].includes(profile?.role);
+  return isAdmin ? children : <Navigate to="/feed" replace />;
+}
+
 function AppRoutes() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
 
       <Route
         path="/"
@@ -62,8 +75,9 @@ function AppRoutes() {
         <Route path="messages" element={<Messages />} />
         <Route path="notifications" element={<Notifications />} />
         <Route path="profile" element={<Profile />} />
-        <Route path="admin" element={<AdminDashboard />} />
-        <Route path="admin/academic-setup" element={<AcademicSetup />} />
+        <Route path="admin-bootstrap" element={<AdminBootstrap />} />
+        <Route path="admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+        <Route path="admin/academic-setup" element={<AdminRoute><AcademicSetup /></AdminRoute>} />
       </Route>
 
       <Route path="*" element={<Navigate to="/feed" replace />} />
@@ -74,7 +88,9 @@ function AppRoutes() {
 export default function App() {
   return (
     <AuthProvider>
-      <AppRoutes />
+      <ToastProvider>
+        <AppRoutes />
+      </ToastProvider>
     </AuthProvider>
   );
 }

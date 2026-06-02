@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Bell, CheckCheck } from "lucide-react";
 import EmptyState from "../../components/EmptyState";
 import { useAuth } from "../../hooks/useAuth";
+import { useToast } from "../../hooks/useToast";
 import {
   fetchNotifications,
   markAllNotificationsRead,
@@ -10,6 +11,7 @@ import {
 
 export default function Notifications() {
   const { user } = useAuth();
+  const toast = useToast();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,15 +28,21 @@ export default function Notifications() {
     load();
   }, [user?.id]);
 
+  function dispatchBadgeRefresh() {
+    window.dispatchEvent(new Event("notifications-updated"));
+  }
+
   async function markRead(id) {
     const { error } = await markNotificationRead(id);
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
+    dispatchBadgeRefresh();
     load();
   }
 
   async function markAllRead() {
     const { error } = await markAllNotificationsRead(user.id);
-    if (error) return alert(error.message);
+    if (error) return toast(error.message, "error");
+    dispatchBadgeRefresh();
     load();
   }
 
