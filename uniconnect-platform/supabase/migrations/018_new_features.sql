@@ -241,7 +241,7 @@ create table if not exists public.alumni_profiles (
   university_id       uuid references public.universities(id) on delete cascade,
   graduation_year     int,
   programme_name      text,
-  current_role        text,
+  job_title           text,
   current_company     text,
   current_location    text,
   linkedin_url        text,

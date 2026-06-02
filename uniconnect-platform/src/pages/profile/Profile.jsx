@@ -21,7 +21,7 @@ export default function Profile() {
   const [theme, setTheme] = useState(() => localStorage.getItem("uc-theme") || "dark");
   const [alumniProfile, setAlumniProfile] = useState(null);
   const [alumniForm, setAlumniForm] = useState({
-    graduation_year: "", programme_name: "", current_role: "",
+    graduation_year: "", programme_name: "", job_title: "",
     current_company: "", current_location: "", linkedin_url: "",
     open_to_mentoring: false, bio: ""
   });
@@ -224,7 +224,7 @@ export default function Profile() {
           <form onSubmit={handleSaveAlumni} className="grid md:grid-cols-2 gap-4 mt-5">
             <input className="input" type="number" placeholder="Graduation year" value={alumniForm.graduation_year} onChange={e => setAlumniForm({ ...alumniForm, graduation_year: e.target.value })} />
             <input className="input" placeholder="Programme name" value={alumniForm.programme_name} onChange={e => setAlumniForm({ ...alumniForm, programme_name: e.target.value })} />
-            <input className="input" placeholder="Current job title / role" value={alumniForm.current_role} onChange={e => setAlumniForm({ ...alumniForm, current_role: e.target.value })} />
+            <input className="input" placeholder="Current job title / role" value={alumniForm.job_title} onChange={e => setAlumniForm({ ...alumniForm, job_title: e.target.value })} />
             <input className="input" placeholder="Current company / organisation" value={alumniForm.current_company} onChange={e => setAlumniForm({ ...alumniForm, current_company: e.target.value })} />
             <input className="input" placeholder="Current location / city" value={alumniForm.current_location} onChange={e => setAlumniForm({ ...alumniForm, current_location: e.target.value })} />
             <input className="input" placeholder="LinkedIn URL" value={alumniForm.linkedin_url} onChange={e => setAlumniForm({ ...alumniForm, linkedin_url: e.target.value })} />
