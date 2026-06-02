@@ -14,8 +14,8 @@ export async function fetchPosts(universityId) {
     .order("created_at", { ascending: false });
 }
 
-export async function createPost({ university_id, author_id, content, community_id = null }) {
-  return supabase.from("posts").insert({ university_id, author_id, content, community_id }).select().single();
+export async function createPost({ university_id, author_id, content, media_url = null, community_id = null }) {
+  return supabase.from("posts").insert({ university_id, author_id, content, media_url, community_id }).select().single();
 }
 
 export async function addComment({ post_id, author_id, content }) {
