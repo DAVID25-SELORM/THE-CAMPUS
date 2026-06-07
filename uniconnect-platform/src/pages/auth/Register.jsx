@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { isSupabaseConfigured, supabase } from "../../services/supabase";
 import Logo from "../../components/Logo";
 import { updateStudentProfile } from "../../services/profileService";
+import { getAuthRedirectUrl } from "../../services/authRedirects";
 
 const blockedEmailDomains = new Set([
   "example.com", "example.org", "example.net",
@@ -58,7 +59,7 @@ export default function Register() {
       password: form.password,
       options: {
         data: { full_name: form.fullName.trim() },
-        emailRedirectTo: `${window.location.origin}/verify`
+        emailRedirectTo: getAuthRedirectUrl("/verify")
       }
     });
 
